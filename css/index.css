@@ -16,47 +16,47 @@ body {
 }
 
 /* Start Header*/
-nav {
+header nav {
     top: 0;
     z-index: 105000;
     background-color: var(--orange-color);
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
 }
 
-nav ul {
+header nav ul {
     width: 100%;
     justify-content: end;
 }
 
-nav .navbar-collapse li a {
+header nav .navbar-collapse li a {
     color: white;
     font-size: 15px;
     font-weight: 600;
 }
 
-nav .navbar-collapse li a.link-special {
+header nav .navbar-collapse li a.link-special {
     margin: 0 5px;
     border: 1px solid;
     border-radius: 10px;
     transition: 0.5s;
 }
 
-nav .navbar-collapse li a.link-special:hover {
+header nav .navbar-collapse li a.link-special:hover {
     background-color: #ff7c12;
 }
 
-nav .navbar-collapse li a:hover,
-nav .navbar-collapse li a:focus,
-nav i:hover,
-nav .dropdown-toggle:focus {
+header nav .navbar-collapse li a:hover,
+header nav .navbar-collapse li a:focus,
+header nav i:hover,
+header nav .dropdown-toggle:focus {
     color: white;
 }
 
-nav .navbar-toggler:focus {
+header nav .navbar-toggler:focus {
     box-shadow: none;
 }
 
-nav i {
+header nav i {
     font-size: 35px;
     color: white;
 }
