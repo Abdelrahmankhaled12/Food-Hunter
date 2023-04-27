@@ -1,10 +1,11 @@
-.partner ul{
+.partner ul {
     list-style: none;
     padding: 0;
 }
 
 .partner .part-1 {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+    min-height: 100vh;
 }
 
 .partner ul a {
@@ -37,6 +38,7 @@
 .partner .row .nonePadding {
     padding: 0;
 }
+
 .partner nav {
     background-color: var(--orange-color);
 }
@@ -58,7 +60,7 @@
     box-shadow: none;
 }
 
-.partner nav i {
+.partner nav .fa-bars {
     font-size: 35px;
     color: white;
 }
@@ -69,16 +71,23 @@
     .bigScreen {
         display: none;
     }
+
     .partner nav .navbar-collapse {
         background-color: white;
     }
+
     .addFood {
         padding: 10px 0px !important;
     }
+
 }
 
 @media(min-width:768px) {
     .smallScreen {
+        display: none;
+    }
+
+    .partner nav .fa-bars {
         display: none;
     }
 }
@@ -111,7 +120,7 @@
 
 .partner .delete {
     color: #f80031;
-    background-color: rgba(251,175,190,.5);
+    background-color: rgba(251, 175, 190, .5);
     border: navajowhite;
     border-radius: 9px;
     font-size: 13px;
