@@ -63,14 +63,14 @@
                             <div class="title">
                                 <h1>Add Food</h1>
                             </div>
-                            <form>
+                            <form method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Title
                                             </label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="e.g Arabian Shawarma">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                placeholder="e.g Arabian Shawarma" name="foodname">
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
@@ -78,7 +78,7 @@
                                             <label for="exampleFormControlInput1" class="form-label">Description
                                             </label>
                                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="e.g A creamy combination of cheese mayo base...">
+                                                placeholder="e.g A creamy combination of cheese mayo base..." name="description">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -86,7 +86,7 @@
                                             <label for="exampleFormControlInput1" class="form-label">Size
                                             </label>
                                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="e.g Small">
+                                                placeholder="e.g Small" name="size">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -94,7 +94,7 @@
                                             <label for="exampleFormControlInput1" class="form-label">Price
                                             </label>
                                             <input type="number" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="e.g 9.99">
+                                                placeholder="e.g 9.99" name="price">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -102,13 +102,13 @@
                                             <label for="exampleFormControlInput1" class="form-label">Discounted
                                             </label>
                                             <input type="number" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="e.g 9.99">
+                                                placeholder="e.g 9.99" name="discount">
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Food Image</label>
-                                            <input class="form-control" type="file" id="formFile">
+                                            <input class="form-control" type="file" id="formFile" name="image" >
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
