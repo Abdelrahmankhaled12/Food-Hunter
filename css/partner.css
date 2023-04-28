@@ -1,3 +1,7 @@
+.height-100 {
+    min-height: 100vh;
+}
+
 .partner ul {
     list-style: none;
     padding: 0;
@@ -129,4 +133,62 @@
 
 .partner table img {
     width: 60px;
+}
+
+.partner .dashBoard {
+    background-color: #f8f9fe;
+}
+
+.partner .dashBoard .box {
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 20px;
+}
+
+.partner .dashBoard .box .icon {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    color: white;
+    border-radius: 50%;
+}
+
+
+.partner .dashBoard .box .icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+}
+
+.partner .dashBoard .box h5 {
+    color: var(--grey-color);
+}
+
+.partner .dashBoard p {
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.partner .search .close {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid var(--orange-color);
+    background-color: var(--orange-color);
+    color: white;
+    font-size: 18px;
+    width: 35px;
+
+}
+
+.partner .search input {
+    width: 150px;
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: none;
 }
