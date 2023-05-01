@@ -12,6 +12,6 @@
     $name=$partner->getName();
     $address=$partner->getLocation();
     $phone=$partner->getPhone();
-    $query="insert into partner(email, password, name, location,phone) VALUES ('$email','$password','$name','$address','$phone')";
+    $query="insert into partner(email, password, name, location,phone) values('$email','$password','$name','$address','$phone')";
     $pcontro->signup($query);
   }
