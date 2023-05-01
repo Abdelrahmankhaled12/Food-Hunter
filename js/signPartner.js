@@ -9,9 +9,9 @@ let submit = document.getElementById("submit");
 
 let nameValue = "",
     emailValue = "",
-    passValue ="",
-    conPassVAlue ="",
-    phoneValue ="",
+    passValue = "",
+    conPassVAlue = "",
+    phoneValue = "",
     branchesValue = 0,
     locationValue = "";
 
@@ -103,4 +103,19 @@ submit.addEventListener("click", (e) => {
     if (!(nameValue.trim() && emailValue.trim() && passValue.trim() && locationValue.trim() && conPassVAlue.trim() && branchesValue > 0 && conPassVAlue === passValue && phone.trim())) {
         e.preventDefault();
     }
+    fetch("http://localhost/footer-hunter/d.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: {
+            name: "abdo",
+            email: "abdo@gmail.com",
+            password: "2235",
+            address: "1oo",
+            phone: "01148687285"
+        }
+    }
+        .then((res) => res.json())
+        .then((res) => console.log(res)))
 })
