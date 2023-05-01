@@ -3,9 +3,9 @@
 class DBController{
 
     private $DBhost ="localhost";
-    private $DBusername="foodhunter";
+    private $DBusername="root";
     private $DBpassword="";
-    private $DBname="charity";
+    private $DBname="foodhunter";
     private $conn=null;
 
 

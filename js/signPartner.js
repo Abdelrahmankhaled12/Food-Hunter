@@ -111,7 +111,7 @@ submit.addEventListener("click", (e) => {
     e.preventDefault();
   }
   fetch(
-    "http://localhost/footer-hunter/d.php",
+    "http://localhost/project/Footer-hunter/php/implementation/signUpPartner.php",
     {
       method: "POST",
       headers: {

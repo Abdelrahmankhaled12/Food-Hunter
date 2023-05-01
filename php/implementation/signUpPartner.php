@@ -5,7 +5,7 @@
     $data=file_get_contents("php://input");
     $user=json_decode($data,true);
     $partner= new partner;
-    $partner->__construct2($data["email"],$data["password"],$data["name"],$data["address"],$data["phone"]);
+    $partner->__construct2($user["email"],$user["password"],$user["name"],$user["address"],$user["phone"]);
     $pcontro=new partnercont($partner);
     $email=$partner->getEmail();
     $password=$partner->getPassword();
