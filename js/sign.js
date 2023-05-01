@@ -11,9 +11,9 @@ selected.forEach((element) => {
 
 nextButton.addEventListener("click", () => {
   if (choose === "signup-user") {
-    location.href = "../signup-user.html";
+    location.href = "../pages/signup-user.html";
   } else if (choose === "signup-partner") {
-    location.href = "../signup-partner.html";
+    location.href = "../pages/signup-partner.html";
   }
 });
 

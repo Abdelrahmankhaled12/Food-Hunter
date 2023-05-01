@@ -34,7 +34,7 @@
 }
 
 .signPartner input:focus {
-    background-color: transparent;
+    background-color: transparent !important;
     border-color: #ffa35866;
     outline: 0;
     box-shadow: 0 0 0 0.25rem #ffa35866;
@@ -74,9 +74,16 @@
 }
 
 .signPartner .true {
-    border: 1px solid green;
+    border: 1px solid transparent;
 }
 
 .signPartner .false {
     border: 1px solid red;
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color:transparent !important;
+    color: fieldtext !important;
 }

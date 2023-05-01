@@ -12,4 +12,10 @@ footer a {
     margin-left: 2px;
     font-weight: 700;
     color: var(--orange-color);
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color:#ffa358b9;
 }
