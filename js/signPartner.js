@@ -1,20 +1,21 @@
+// Get Elements
 let inputName = document.getElementById("name");
 let inputEmail = document.getElementById("email");
 let inputPassword = document.getElementById("password");
 let inputPhone = document.getElementById("phone");
-let inputBranchse = document.getElementById("branchse");
 let inputLocation = document.getElementById("location");
 let inputConfirmPassword = document.getElementById("confirmPassword");
 let submit = document.getElementById("submit");
 
+// Storage Data
 let nameValue = "",
     emailValue = "",
     passValue = "",
     conPassVAlue = "",
     phoneValue = "",
-    branchesValue = 0,
     locationValue = "";
 
+// Add Event Listener
 inputName.addEventListener("change", (event) => {
     if (event.target.value.trim() && event.target.value.length >= 5) {
         nameValue = event.target.value;
@@ -27,10 +28,7 @@ inputName.addEventListener("change", (event) => {
 });
 
 inputEmail.addEventListener("change", (event) => {
-    if (
-        event.target.value.trim() &&
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
-    ) {
+    if (event.target.value.trim() && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)) {
         emailValue = event.target.value;
         event.target.classList.remove("false");
         event.target.classList.add("true");
@@ -73,16 +71,6 @@ inputLocation.addEventListener("change", (event) => {
     }
 });
 
-inputBranchse.addEventListener("change", (event) => {
-    if (event.target.value.trim() && event.target.value.length > 0) {
-        branchesValue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-});
 
 inputPhone.addEventListener("change", (event) => {
     if (event.target.value.trim() && event.target.value.length === 11) {
@@ -96,7 +84,9 @@ inputPhone.addEventListener("change", (event) => {
 });
 
 submit.addEventListener("click", (e) => {
-    if (nameValue.trim() && emailValue.trim() && passValue.trim() && locationValue.trim() && conPassVAlue.trim() && branchesValue > 0 && conPassVAlue === passValue && phoneValue.trim()) {
+    // Check Data True => Send Data From DataBase
+    e.preventDefault();
+    if (nameValue.trim() && emailValue.trim() && passValue.trim() && locationValue.trim() && conPassVAlue.trim() && conPassVAlue === passValue && phoneValue.trim()) {
         var data = {
             name: nameValue,
             email: emailValue,
@@ -104,16 +94,22 @@ submit.addEventListener("click", (e) => {
             phone: phoneValue,
             address: locationValue
         };
-        var jsonData = JSON.stringify(data);
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost/footer-hunter/php/implementation/signUpPartner.php", true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log(xhr.responseText);
-            }
-        };
-        xhr.send(jsonData);
+        // var jsonData = JSON.stringify(data);
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("POST", "http://localhost/footer-hunter/php/implementation/signUpPartner.php", true);
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState === 4 && xhr.status === 200) {
+        //         console.log(xhr.responseText);
+        //     }
+        // };
+        // xhr.send(jsonData);
+        localStorage.setItem("data", JSON.stringify( {
+            name: nameValue,
+            email: emailValue,
+            phone: phoneValue,
+            address: locationValue
+        }));
         location.href = "../pages/partner/partner.html";
 }else {
     e.preventDefault();
