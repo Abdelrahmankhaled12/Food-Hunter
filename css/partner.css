@@ -192,3 +192,12 @@
     border-top-left-radius: 5px;
     box-shadow: none;
 }
+
+.partner .true {
+    border: 1px solid green;
+}
+
+.false {
+    border: 10px solid red !important;
+    font-size: 455px;
+}
