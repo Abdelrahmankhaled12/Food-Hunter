@@ -232,6 +232,8 @@ minuteOpen.addEventListener("change", (event) => {
 });
 
 submit.addEventListener("click", (e) => {
+  e.preventDefault();
+
   // Check Data True => Send Data From DataBase
   if (
     nameValue.trim() &&
@@ -255,7 +257,6 @@ submit.addEventListener("click", (e) => {
   ) {
     // const formData = new FormData();
     // formData.append('image', restaurantLogo);
-    e.preventDefault();
     const formData = new FormData();
 
     formData.append('image', restaurantLogo.files[0]);
@@ -277,7 +278,6 @@ submit.addEventListener("click", (e) => {
         hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue
       }`,
       status: statusValue,
-      image: formData,
     };
 
     var jsonData = JSON.stringify(data);
