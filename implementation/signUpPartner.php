@@ -26,8 +26,7 @@
     $minOrder=$partner->getMinOrder();
     $role=$partner->getRoleid();
     $query="insert into partner(email,password,name,location,phone,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$open','$close','$fees','$time','$status','$description','$minOrder')";
-    $connect=mysqli_connect("localhost","root","","foodhunter");
-    mysqli_query($connect,$query);
+    $pcontro->signup($query);
     /*$operation=$pcontro->signup($query);
     if($operation===true){
       echo "Done";
