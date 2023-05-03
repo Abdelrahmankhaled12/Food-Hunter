@@ -11,8 +11,9 @@
       $operation=$this->db->insert($query);
       if($operation){
         $this->db->closeConnection();
+        return true;
       }else{
-        echo "error in query";
+        return false;
       }
   }
 

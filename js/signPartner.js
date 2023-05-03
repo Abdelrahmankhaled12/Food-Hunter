@@ -255,7 +255,7 @@ submit.addEventListener("click", (e) => {
   ) {
     // const formData = new FormData();
     // formData.append('image', restaurantLogo);
-
+    e.preventDefault();
     var data = {
       name: nameValue,
       email: emailValue,
@@ -276,6 +276,7 @@ submit.addEventListener("click", (e) => {
       image: restaurantLogo.value,
     };
     var jsonData = JSON.stringify(data);
+    console.log(jsonData);
     var xhr = new XMLHttpRequest();
     xhr.open(
       "POST",
