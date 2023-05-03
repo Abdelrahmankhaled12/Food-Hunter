@@ -1,5 +1,5 @@
 <?php 
-  require("dbcontroller.php");
+  require_once("dbcontroller.php");
   class person{
     protected $db;
 

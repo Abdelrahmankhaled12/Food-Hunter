@@ -16,8 +16,7 @@ let hourClose = document.getElementById("hourClose");
 let minuteClose = document.getElementById("minuteClose");
 let secondsClose = document.getElementById("secondsClose");
 let statuss = document.getElementById("status");
- let restaurantLogo = document.getElementById("formFile");
-
+let restaurantLogo = document.getElementById("formFile");
 
 let submit = document.getElementById("sub");
 
@@ -31,14 +30,14 @@ let nameValue = "",
   descriptionValue = "",
   deliveryFeesValue = 0,
   deliveryTimeValue = 0,
-  minOrderValue  = 0,
+  minOrderValue = 0,
   hourOpenValue = 0,
-  minuteOpenValue  = 0,
-  secondsOpenValue = 0 ,
+  minuteOpenValue = 0,
+  secondsOpenValue = 0,
   hourCloseValue = 0,
   minuteCloseValue = 0,
   secondsCloseValue = 0,
-  statusValue="",
+  statusValue = "",
   restaurantLogoValue;
 
 // Add Event Listener
@@ -122,8 +121,6 @@ description.addEventListener("change", (event) => {
   }
 });
 
-
-
 hourOpen.addEventListener("change", (event) => {
   if (event.target.value >= 0) {
     hourOpenValue = event.target.value;
@@ -168,7 +165,6 @@ deliveryFees.addEventListener("change", (event) => {
   }
 });
 
-
 statuss.addEventListener("change", (event) => {
   if (event.target.value.trim() && event.target.value.length >= 5) {
     statusValue = event.target.value;
@@ -179,8 +175,6 @@ statuss.addEventListener("change", (event) => {
     event.target.classList.add("false");
   }
 });
-
-
 
 secondsClose.addEventListener("change", (event) => {
   if (event.target.value >= 0) {
@@ -237,7 +231,6 @@ minuteOpen.addEventListener("change", (event) => {
   }
 });
 
-
 submit.addEventListener("click", (e) => {
   // Check Data True => Send Data From DataBase
   if (
@@ -273,23 +266,33 @@ submit.addEventListener("click", (e) => {
       fees: deliveryFeesValue,
       time: deliveryTimeValue,
       minorder: minOrderValue,
-      open: `${hourOpenValue + " : " + minuteOpenValue + " : " + secondsOpenValue}`,
-      close: `${hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue}`,
+      open: `${
+        hourOpenValue + " : " + minuteOpenValue + " : " + secondsOpenValue
+      }`,
+      close: `${
+        hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue
+      }`,
       status: statusValue,
-      image: restaurantLogo.value
+      image: restaurantLogo.value,
     };
     var jsonData = JSON.stringify(data);
     var xhr = new XMLHttpRequest();
+<<<<<<< HEAD
     xhr.open("POST", "http://localhost/footer-hunter/implementation/signUpPartner.php", true);
+=======
+    xhr.open(
+      "POST",
+      "http://localhost/footer-hunter/implementation/signUpPartner.php",
+      true
+    );
+>>>>>>> aaeb02cdabfa483136bc960bf00b2be872aff2d3
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
-        }
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+      }
     };
     xhr.send(jsonData);
-    localStorage.setItem(
-      "data",
-      JSON.stringify(data))
+    localStorage.setItem("data", JSON.stringify(data));
   }
 });

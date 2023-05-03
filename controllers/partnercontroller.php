@@ -1,16 +1,16 @@
 <?php
-  require("person.php");
-  require("../models/partner.php");
-  require("dbcontroller.php");
-  require("../models/meal.php");
-  class pcontrol extends person{
-    private restaurant $partner;
+  require_once("person.php");
+  require_once("../models/partner.php");
+  require_once("dbcontroller.php");
+  require_once("../models/meal.php");
+  class restaurant extends person{
+    private Custom\Partner $partner;
 
     private meal $meal;
     protected $db;
 
 
-    public function __construct(restaurant $partner){
+    public function __construct(Custom\Partner $partner){
       $this->partner=$partner;
     }
 
