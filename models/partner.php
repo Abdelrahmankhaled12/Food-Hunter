@@ -1,5 +1,5 @@
 <?php
-    class partner{
+    class restaurant{
     private $id;
     private $email;
     private $password;
@@ -62,7 +62,7 @@
 		$this->email = $email;
 	}
 
-  public function getName() {
+    public function getName() {
 		return $this->name;
 	}
 	public function setName($name) {
