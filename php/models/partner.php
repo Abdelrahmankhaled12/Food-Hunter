@@ -1,5 +1,5 @@
 <?php
-  class partner{
+    class partner{
     private $id;
     private $email;
     private $password;
@@ -7,20 +7,44 @@
     private $location;
     private $phone;
 
-		private $roleid=3;
+	private $logoName;
+
+	private $logo;
+
+	private $open;
+
+	private $close;
+
+	private $fees;
+
+	private $time;
+	private $status;
+
+	private $description;
+	private $minorder;
+	private $roleid=2;
 
     public function __construct1(){
 
     }
 
-    public function __construct2($email,$password,$name,$location,$phone,$id=0){
-      $this->id=$id;
-      $this->email=$email;
-      $this->password=$password;
-      $this->name=$name;
-      $this->location=$location;
-      $this->phone=$phone;
-    }
+		public function __construct2($email, $password, $name, $location, $phone, $logoName, $logo, $open, $close, $fees, $time, $status, $description, $minorder, $id = 0) {
+    $this->id = $id;
+    $this->email = $email;
+    $this->password = $password;
+    $this->name = $name;
+    $this->location = $location;
+    $this->phone = $phone;
+    $this->logoName = $logoName;
+    $this->logo = $logo;
+    $this->open = $open;
+    $this->close = $close;
+    $this->fees = $fees;
+    $this->time = $time;
+    $this->status = $status;
+    $this->description = $description;
+    $this->minorder = $minorder;
+}
 
 
 	public function getPassword() {
@@ -72,4 +96,76 @@
 	public function getRoleid() {
 		return $this->roleid;
 	}
+
+	public function setLogoName($logoName) {
+        $this->logoName = $logoName;
+    }
+
+    public function getLogoName() {
+        return $this->logoName;
+    }
+
+    public function setLogo($logo) {
+        $this->logo = $logo;
+    }
+
+    public function getLogo() {
+        return $this->logo;
+    }
+
+    public function setOpen($open) {
+        $this->open = $open;
+    }
+
+    public function getOpen() {
+        return $this->open;
+    }
+
+    public function setClose($close) {
+        $this->close = $close;
+    }
+
+    public function getClose() {
+        return $this->close;
+    }
+
+    public function setFees($fees) {
+        $this->fees = $fees;
+    }
+
+    public function getFees() {
+        return $this->fees;
+    }
+
+    public function setTime($time) {
+        $this->time = $time;
+    }
+
+    public function getTime() {
+        return $this->time;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+    }
+
+    public function getStatus() {
+        return $this->status;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function setMinOrder($minorder) {
+        $this->minorder = $minorder;
+    }
+
+    public function getMinOrder() {
+        return $this->minorder;
+    }
 }

@@ -38,13 +38,15 @@ class DBController{
 
     public function select($stmt){
         $result=$this->conn->query($stmt);
-        if($result->num_rows>0){
-            while($row=$result->fetch_all(MYSQLI_ASSOC)){
-                return $row;
-            }
-        }else{
-            return false;
+        if (!$result) {
+        echo "Query failed: " . mysqli_error($this->conn);
+        }else {
+        $rows=array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
         }
+    }
+    return $rows;
     }
 
 
