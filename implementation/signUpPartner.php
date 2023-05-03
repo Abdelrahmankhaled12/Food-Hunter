@@ -25,8 +25,13 @@
     $description=$partner->getDescription();
     $minOrder=$partner->getMinOrder();
     $role=$partner->getRoleid();
-    $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone',$logoName,$logo,'$open','$close','$fees','$time','$status','$description','$minOrder')";
-    $operation=$pcontro->signup($query);
-    $query="insert into role(email,password,roleid) values('$email','$password','$role')";
-    $pcontro->signup($query);
+    $query="insert into partner(email,password,name,location,phone,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$open','$close','$fees','$time','$status','$description','$minOrder')";
+    $connect=mysqli_connect("localhost","root","","foodhunter");
+    mysqli_query($connect,$query);
+    /*$operation=$pcontro->signup($query);
+    if($operation===true){
+      echo "Done";
+    }else{
+      echo "Error";
+    }*/
     }
