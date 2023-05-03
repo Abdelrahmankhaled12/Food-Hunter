@@ -3,7 +3,7 @@
 }
 
 .signPartner .video {
-    height: 750px;
+    min-height: 750px;
 }
 
 .signPartner video {
@@ -15,9 +15,7 @@
 }
 
 .signPartner .box {
-    top: 50%;
-    left: 45px;
-    transform: translateY(-50%);
+    top: 0%;
 }
 
 .signPartner input {
