@@ -255,6 +255,7 @@ submit.addEventListener("click", (e) => {
   ) {
     // const formData = new FormData();
     // formData.append('image', restaurantLogo);
+    e.preventDefault();
     const formData = new FormData();
 
     formData.append('image', restaurantLogo.files[0]);
@@ -280,6 +281,7 @@ submit.addEventListener("click", (e) => {
     };
 
     var jsonData = JSON.stringify(data);
+    console.log(jsonData);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost/footer-hunter/implementation/signUpPartner.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
