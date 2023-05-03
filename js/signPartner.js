@@ -280,7 +280,7 @@ submit.addEventListener("click", (e) => {
     };
     var jsonData = JSON.stringify(data);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost/footer-hunter/php/implementation/signUpPartner.php", true);
+    xhr.open("POST", "http://localhost/footer-hunter/php/implementation/partner/signUpPartner.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
