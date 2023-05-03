@@ -1,6 +1,6 @@
 <?php
-  require_once("../models/partner.php");
-  require_once("../controllers/partnercontroller.php");
+  require_once("../footer-hunter/php/models/partner.php");
+  require_once("../footer-hunter/php/controllers/partnercontroller.php");
     if(isset($_POST)){
     $data=file_get_contents("php://input");
     $user=json_decode($data,true);

@@ -34,4 +34,8 @@
         echo "Nothin Found";
       }
     }
+
+    public function addMeal(){
+      
+    }
   }
