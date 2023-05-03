@@ -1,15 +1,15 @@
 <?php
-  require_once("../footer-hunter/php/models/partner.php");
-  require_once("../footer-hunter/php/controllers/partnercontroller.php");
+  require("../models/partner.php");
+  require("../controllers/partnercontroller.php");
     if(isset($_POST)){
     $data=file_get_contents("php://input");
     $user=json_decode($data,true);
     $logo=$_FILES=[$user["image"]]["tmp_name"];
     $logoName=$_FILES[$user["image"]]["name"];
     $logo=base64_encode(file_get_contents(addslashes($logo)));
-    $partner= new partner;
+    $partner= new restaurant;
     $partner->__construct2($user["email"],$user["password"],$user["name"],$user["address"],$user["phone"],$logoName,$logo,$user["open"],$user["close"],$user["fees"],$user["time"],$user["status"],$user["description"],$user["minorder"]);
-    $pcontro=new partnercont($partner);
+    $pcontro=new pcontrol($partner);
     $email=$partner->getEmail();
     $password=$partner->getPassword();
     $name=$partner->getName();

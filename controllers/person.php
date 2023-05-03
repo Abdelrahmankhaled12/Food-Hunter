@@ -1,6 +1,5 @@
 <?php 
-  require_once("../controllers/dbcontroller.php");
-  require_once("../models/partner.php");
+  require("dbcontroller.php");
   class person{
     protected $db;
 
