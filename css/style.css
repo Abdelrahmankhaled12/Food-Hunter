@@ -14,8 +14,3 @@ body {
     --orange-color: #FFA458;
     --grey-color: #999;
 }
-
-
-.false {
-    border: 1px solid red;
-}

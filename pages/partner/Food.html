@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../../css/footerDash.css">
     <!-- File Css Partner -->
     <link rel="stylesheet" href="../../css/partner.css">
-    
+
 </head>
 
 <div class="partner">
@@ -74,9 +74,9 @@
                     <div class="addFood p-lg-5">
                         <div class="container">
                             <div class="title">
-                                <h1 class="false">Add Food</h1>
+                                <h1>Add Food</h1>
                             </div>
-                            <form method="post" enctype="multipart/form-data" id="submit">
+                            <form id="submit">
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <div class="mb-3">
@@ -165,24 +165,12 @@
                                             <td><img src="https://res.cloudinary.com/dimjm4ald/image/upload/v1678987372/food/htjzxmhchcffcx4tn3gt.webp"
                                                     alt=""></td>
                                             <td>10.0</td>
-                                            <td><button class="delete">delete</button></td>
+                                            <td>
+                                                <button class="delete me-2" id="delete">delete</button>
+                                                <button class="edit">edit</button>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">Lol</th>
-                                            <td>Mark</td>
-                                            <td><img src="https://res.cloudinary.com/dimjm4ald/image/upload/v1678987372/food/htjzxmhchcffcx4tn3gt.webp"
-                                                    alt=""></td>
-                                            <td>10.0</td>
-                                            <td><button class="delete">delete</button></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Lol</th>
-                                            <td>Mark</td>
-                                            <td><img src="https://res.cloudinary.com/dimjm4ald/image/upload/v1678987372/food/htjzxmhchcffcx4tn3gt.webp"
-                                                    alt=""></td>
-                                            <td>10.0</td>
-                                            <td><button class="delete">delete</button></td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -205,8 +193,8 @@
     </div>
 </div>
 
-
-
+<!-- File Js Sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- File Js Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -216,6 +204,7 @@
     crossorigin="anonymous"></script>
 <!-- File Js Food -->
 <script src="../../js/food.js"></script>
+
 
 </body>
 
