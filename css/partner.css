@@ -249,3 +249,32 @@
     color: var(--grey-color);
     font-weight: 700;
 }
+
+.partner .profile .description {
+    background-color: rgb(255, 255, 255);
+    border-top: 7px solid rgb(255, 90, 0);
+    box-shadow: rgb(153, 153, 153) -5px -7px 12px -5px, rgb(153, 153, 153) 4px -6px 12px -5px;
+    border-radius: 10px;
+}
+
+.partner .profile .description h4 {
+    color: var(--orange-color);
+}
+
+.partner .profile .description p {
+    color: var(--grey-color);
+    font-size: 15px;
+}
+
+.partner .profile  h6 {
+    color: var(--grey-color);
+}
+
+.partner .profile .dish p {
+    color: var(--grey-color);
+    font-size: 15px;
+}
+
+.partner .setting h3 {
+    color: var(--grey-color);
+}
