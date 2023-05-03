@@ -16,7 +16,7 @@ let hourClose = document.getElementById("hourClose");
 let minuteClose = document.getElementById("minuteClose");
 let secondsClose = document.getElementById("secondsClose");
 let statuss = document.getElementById("status");
-let restaurantLogo = document.querySelector('input[type="file"]');;
+let restaurantLogo = document.querySelector('input[type="file"]');
 
 let submit = document.getElementById("sub");
 
@@ -258,7 +258,7 @@ submit.addEventListener("click", (e) => {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append('image', restaurantLogo.files[0]);
+    formData.append("image", restaurantLogo.files[0]);
 
     var data = {
       name: nameValue,
@@ -277,13 +277,16 @@ submit.addEventListener("click", (e) => {
         hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue
       }`,
       status: statusValue,
-      image: formData,
     };
 
     var jsonData = JSON.stringify(data);
     console.log(jsonData);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost/footer-hunter/implementation/signUpPartner.php", true);
+    xhr.open(
+      "POST",
+      "http://localhost/footer-hunter/implementation/signUpPartner.php",
+      true
+    );
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
