@@ -5,7 +5,6 @@
   require_once("../models/meal.php");
   class restaurant extends person{
     private Custom\Partner $partner;
-
     private meal $meal;
     protected $db;
 
@@ -34,7 +33,7 @@
       if(!empty($rows)){
         return $rows;
       }else{
-        echo "Nothin Found";
+        return "Nothing Found";
       }
     }
 
