@@ -17,7 +17,7 @@
       }
   }
 
-    public function login($query){
+    /*public function login($query){
       $this->db=new DBController;
       $rows=$this->db->select($query);
       $id=$rows[0]["id"];
@@ -33,5 +33,5 @@
       else{
         return "delivery";
       }
-    }
+    }*/
 }
