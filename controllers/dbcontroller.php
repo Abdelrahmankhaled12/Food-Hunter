@@ -41,12 +41,8 @@ class DBController{
         if (!$result) {
         echo "Query failed: " . mysqli_error($this->conn);
         }else {
-        $rows=array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            $rows[] = $row;
-        }
+        return $result;
     }
-    return $rows;
     }
 
 

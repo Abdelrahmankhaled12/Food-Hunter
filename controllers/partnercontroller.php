@@ -28,12 +28,17 @@
     public function getData(){
       $email=$this->partner->getEmail();
       $this->db=new DBController;
-      $query="select id,email,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder FROM partner WHERE email='$email'";
-      $rows=$this->db->select($query);
-      if(!empty($rows)){
-        return $rows;
+      $query="SELECT id,email,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder FROM partner where email='$email'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+          while ($row = mysqli_fetch_assoc($result)) {
+            $row["logo"]=base64_encode($row["logo"]);
+            $rows[] = $row;
+          }
+          return $rows;
       }else{
-        return "Nothing Found";
+        echo "empty result";
       }
     }
 
