@@ -12,7 +12,7 @@
 
     }
 
-    public function __construct2($partnerId,$mealId,$mealName,$description,$category,$image,$price){
+    public function __construct2($partnerId,$mealName,$description,$category,$image,$price,$mealId=0){
       $this->partnerId=$partnerId;
       $this->mealId=$mealId;
       $this->mealName=$mealName;
