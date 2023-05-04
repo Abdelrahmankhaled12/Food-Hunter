@@ -44,6 +44,13 @@
     public function addMeal(){
       $id=$this->partner->getId();
       $this->db=new DBController;
-      
+      $partnerId=$this->meal->getPartnerId();
+      $mealname=$this->meal->getMealName();
+      $description=$this->meal->getDescription();
+      $category=$this->meal->getCategory();
+      $price=$this->meal->getPrice();
+      $this->db=new DBController;
+      $query="insert into meal(partnerid,mealname,description,category,price) values('$partnerId','$mealname','$description','$category','$price)";
+      $this->db->insert($query);
     }
   }
