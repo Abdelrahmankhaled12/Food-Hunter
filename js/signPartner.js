@@ -16,7 +16,6 @@ let hourClose = document.getElementById("hourClose");
 let minuteClose = document.getElementById("minuteClose");
 let secondsClose = document.getElementById("secondsClose");
 let statuss = document.getElementById("status");
-let restaurantLogo = document.querySelector('input[type="file"]');
 
 let submit = document.getElementById("sub");
 
@@ -40,199 +39,30 @@ let nameValue = "",
   statusValue = "",
   restaurantLogoValue;
 
-// Add Event Listener
-inputName.addEventListener("change", (event) => {
-  if (event.target.value.trim() && event.target.value.length >= 5) {
-    nameValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
+// اختيار العنصر الذي يحتوي على الصورة
+const fileInput = document.querySelector('input[type="file"]');
 
-inputEmail.addEventListener("change", (event) => {
-  if (
-    event.target.value.trim() &&
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
-  ) {
-    emailValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
+// تحويل الصورة إلى بيانات ثنائية الحجم
+const reader = new FileReader();
+console.log(reader)
+reader.addEventListener('load', function () {
+  const imageData = reader.result;
+  console.log(imageData)
 
-inputPassword.addEventListener("change", (event) => {
-  if (event.target.value.trim() && event.target.value.length >= 8) {
-    passValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'upload.php', true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      console.log('تم تحميل الصورة بنجاح');
+    } else {
+      console.log('فشل تحميل الصورة');
+    }
+  };
+  xhr.send(imageData);
 });
-
-inputConfirmPassword.addEventListener("change", (event) => {
-  if (event.target.value.trim() && event.target.value === passValue) {
-    conPassVAlue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-inputLocation.addEventListener("change", (event) => {
-  if (event.target.value.trim() && event.target.value.length >= 10) {
-    locationValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-inputPhone.addEventListener("change", (event) => {
-  if (event.target.value.trim() && event.target.value.length === 11) {
-    phoneValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-description.addEventListener("change", (event) => {
-  if (event.target.value.trim()) {
-    descriptionValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-hourOpen.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    hourOpenValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-minOrder.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    minOrderValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-deliveryTime.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    deliveryTimeValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-deliveryFees.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    deliveryFeesValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-statuss.addEventListener("change", (event) => {
-  if (event.target.value.trim() && event.target.value.length >= 5) {
-    statusValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-secondsClose.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    secondsCloseValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-minuteClose.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    minuteCloseValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-hourClose.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    hourCloseValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-secondsOpen.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    secondsOpenValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
-
-minuteOpen.addEventListener("change", (event) => {
-  if (event.target.value >= 0) {
-    minuteOpenValue = event.target.value;
-    event.target.classList.remove("false");
-    event.target.classList.add("true");
-  } else {
-    event.target.classList.remove("true");
-    event.target.classList.add("false");
-  }
-});
+reader.readAsDataURL(fileInput.files[0]);
 
 submit.addEventListener("click", (e) => {
-  e.preventDefault();
 
   // Check Data True => Send Data From DataBase
   if (
@@ -257,9 +87,6 @@ submit.addEventListener("click", (e) => {
   ) {
     // const formData = new FormData();
     // formData.append('image', restaurantLogo);
-    const formData = new FormData();
-
-    formData.append("image", restaurantLogo.files[0]);
 
     var data = {
       name: nameValue,
@@ -271,12 +98,10 @@ submit.addEventListener("click", (e) => {
       fees: deliveryFeesValue,
       time: deliveryTimeValue,
       minorder: minOrderValue,
-      open: `${
-        hourOpenValue + " : " + minuteOpenValue + " : " + secondsOpenValue
-      }`,
-      close: `${
-        hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue
-      }`,
+      open: `${hourOpenValue + " : " + minuteOpenValue + " : " + secondsOpenValue
+        }`,
+      close: `${hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue
+        }`,
       status: statusValue,
     };
 
