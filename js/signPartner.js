@@ -1,4 +1,4 @@
-// Get Elements
+ // Get Elements
 let inputName = document.getElementById("name");
 let inputEmail = document.getElementById("email");
 let inputPassword = document.getElementById("password");
@@ -16,110 +16,46 @@ let hourClose = document.getElementById("hourClose");
 let minuteClose = document.getElementById("minuteClose");
 let secondsClose = document.getElementById("secondsClose");
 let statuss = document.getElementById("status");
-
 let submit = document.getElementById("sub");
-
-// Storage Data
-let nameValue = "",
-  emailValue = "",
-  passValue = "",
-  conPassVAlue = "",
-  phoneValue = "",
-  locationValue = "",
-  descriptionValue = "",
-  deliveryFeesValue = 0,
-  deliveryTimeValue = 0,
-  minOrderValue = 0,
-  hourOpenValue = 0,
-  minuteOpenValue = 0,
-  secondsOpenValue = 0,
-  hourCloseValue = 0,
-  minuteCloseValue = 0,
-  secondsCloseValue = 0,
-  statusValue = "",
-  restaurantLogoValue;
-
-// اختيار العنصر الذي يحتوي على الصورة
 const fileInput = document.querySelector('input[type="file"]');
 
-// تحويل الصورة إلى بيانات ثنائية الحجم
-const reader = new FileReader();
-console.log(reader)
-reader.addEventListener('load', function () {
-  const imageData = reader.result;
-  console.log(imageData)
+submit.addEventListener('submit', function() {
+
+  let openTime = `${hourOpen + " : " + minuteOpen +  " : " +  secondsOpen}`
+  let closeTime = `${hourClose + " : " + minuteClose +  " : " +  secondsClose}`
+
+  const file = fileInput.files[0];
+  const formData = new FormData();
+  formData.append('image', file);
+  formData.append('name', inputName.value);   
+  formData.append('email', inputEmail.value);    
+  formData.append('password', inputPassword.value);
+  formData.append('address', inputLocation.value);
+  formData.append('description', description.value);
+  formData.append('fees', deliveryFees.value);
+  formData.append('time', deliveryTime.value);
+  formData.append('close', closeTime);
+  formData.append('open', openTime);
+  formData.append('status', statuss.value);
+  formData.append('minorder', minOrder.value);
+
 
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'upload.php', true);
-  xhr.onload = function () {
+  xhr.open('POST', 'http://localhost/footer-hunter/implementation/signUpPartner.php', true);
+  
+  xhr.onload = function() {
     if (xhr.status === 200) {
-      console.log('تم تحميل الصورة بنجاح');
+      console.log('تم تحميل الصورة بنجاح.');
     } else {
-      console.log('فشل تحميل الصورة');
+      console.log('فشل تحميل الصورة.');
     }
   };
-  xhr.send(imageData);
+  
+  xhr.send(formData);
 });
-reader.readAsDataURL(fileInput.files[0]);
 
-submit.addEventListener("click", (e) => {
+let x = "abdelrahman.khaled1086@gmail.com";
 
-  // Check Data True => Send Data From DataBase
-  if (
-    nameValue.trim() &&
-    emailValue.trim() &&
-    passValue.trim() &&
-    locationValue.trim() &&
-    conPassVAlue.trim() &&
-    conPassVAlue === passValue &&
-    phoneValue.trim() &&
-    descriptionValue.trim() &&
-    deliveryFeesValue >= 0 &&
-    deliveryTimeValue >= 0 &&
-    minOrderValue >= 0 &&
-    hourOpenValue >= 0 &&
-    minuteOpenValue >= 0 &&
-    secondsOpenValue >= 0 &&
-    hourCloseValue >= 0 &&
-    minuteCloseValue >= 0 &&
-    secondsCloseValue >= 0 &&
-    statusValue.trim()
-  ) {
-    // const formData = new FormData();
-    // formData.append('image', restaurantLogo);
 
-    var data = {
-      name: nameValue,
-      email: emailValue,
-      password: passValue,
-      phone: phoneValue,
-      address: locationValue,
-      description: descriptionValue,
-      fees: deliveryFeesValue,
-      time: deliveryTimeValue,
-      minorder: minOrderValue,
-      open: `${hourOpenValue + " : " + minuteOpenValue + " : " + secondsOpenValue
-        }`,
-      close: `${hourCloseValue + " : " + minuteCloseValue + " : " + secondsCloseValue
-        }`,
-      status: statusValue,
-    };
-
-    var jsonData = JSON.stringify(data);
-    console.log(jsonData);
-    var xhr = new XMLHttpRequest();
-    xhr.open(
-      "POST",
-      "http://localhost/footer-hunter/implementation/signUpPartner.php",
-      true
-    );
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText);
-      }
-    };
-    xhr.send(jsonData);
-    localStorage.setItem("data", JSON.stringify(data));
-  }
-});
+fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${x}`)
+.then(res=>console.log(res))

@@ -23,6 +23,7 @@
     $minOrder=$partner->getMinOrder();
     $role=$partner->getRoleid();
 <<<<<<< HEAD
+<<<<<<< HEAD
     $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo','$open','$close','$fees','$time','$status','$description','$minOrder')";
 =======
 <<<<<<< HEAD
@@ -34,8 +35,10 @@
 =======
     $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo_data','$open','$close','$fees','$time','$status','$description','$minOrder')";
 >>>>>>> ff21ac7c8add3306dbf47f28a3328ea177bcfecc
+=======
+    $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo','$open','$close','$fees','$time','$status','$description','$minOrder')";
+>>>>>>> c090c9ccd7114e61c45d9d7ceebea10ee65e3094
     $pcontro->signup($query);
     $query="insert into role(email,password,roleid) values('$email','$password','$role')";
     $pcontro->signup($query);
     }
->>>>>>> 4af546aaed756df60667bd8af8dbfef117efeef9
