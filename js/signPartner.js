@@ -1,4 +1,4 @@
- // Get Elements
+// Get Elements
 let inputName = document.getElementById("name");
 let inputEmail = document.getElementById("email");
 let inputPassword = document.getElementById("password");
@@ -19,16 +19,16 @@ let statuss = document.getElementById("status");
 let submit = document.getElementById("sub");
 const fileInput = document.querySelector('input[type="file"]');
 
-submit.addEventListener('submit', function() {
+submit.addEventListener('submit', function () {
 
-  let openTime = `${hourOpen + " : " + minuteOpen +  " : " +  secondsOpen}`
-  let closeTime = `${hourClose + " : " + minuteClose +  " : " +  secondsClose}`
+  let openTime = `${hourOpen + " : " + minuteOpen + " : " + secondsOpen}`
+  let closeTime = `${hourClose + " : " + minuteClose + " : " + secondsClose}`
 
   const file = fileInput.files[0];
   const formData = new FormData();
   formData.append('image', file);
-  formData.append('name', inputName.value);   
-  formData.append('email', inputEmail.value);    
+  formData.append('name', inputName.value);
+  formData.append('email', inputEmail.value);
   formData.append('password', inputPassword.value);
   formData.append('address', inputLocation.value);
   formData.append('description', description.value);
@@ -42,20 +42,42 @@ submit.addEventListener('submit', function() {
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost/footer-hunter/implementation/signUpPartner.php', true);
-  
-  xhr.onload = function() {
+
+  xhr.onload = function () {
     if (xhr.status === 200) {
       console.log('تم تحميل الصورة بنجاح.');
     } else {
       console.log('فشل تحميل الصورة.');
     }
   };
-  
+
   xhr.send(formData);
 });
 
-let x = "abdelrahman.khaled1086@gmail.com";
+// let x = "abdelrahman.khaled1086@gmail.com";
 
+// var datass;
 
-fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${x}`)
-.then(res=>console.log(res))
+// fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${x}`)
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log(data)
+//     // parse the JSON-encoded string into a JavaScript object
+//     fetch(data.logo)
+//     .then((res) => res.blob())
+//     .then((blob) => {
+//         // Read the Blob as DataURL using the FileReader API
+//         const reader = new FileReader();
+//         reader.onloadend = () => {
+//             console.log(reader.result);
+//             // Logs data:image/jpeg;base64,wL2dvYWwgbW9yZ...
+
+//             // Convert to Base64 string
+//             const base64 = getBase64StringFromDataURL(reader.result);
+//             console.log(base64);
+//             // Logs wL2dvYWwgbW9yZ...
+//         };
+//         reader.readAsDataURL(blob);
+//     });
+//   }
+//   )
