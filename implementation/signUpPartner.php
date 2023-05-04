@@ -22,11 +22,6 @@
     $description=$partner->getDescription();
     $minOrder=$partner->getMinOrder();
     $role=$partner->getRoleid();
-<<<<<<< HEAD
-<<<<<<< HEAD
-    $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo','$open','$close','$fees','$time','$status','$description','$minOrder')";
-=======
-<<<<<<< HEAD
     $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone',$logoName,$logo,'$open','$close','$fees','$time','$status','$description','$minOrder')";
     $operation=$pcontro->signup($query);
     $query="insert into role(email,password,roleid) values('$email','$password','$role')";
