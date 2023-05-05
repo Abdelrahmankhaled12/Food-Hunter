@@ -17,7 +17,6 @@
       $this->mealId=$mealId;
       $this->mealName=$mealName;
       $this->description=$description;
-      $this->category=$category;
       $this->image=$image;
       $this->price=$price;
     }

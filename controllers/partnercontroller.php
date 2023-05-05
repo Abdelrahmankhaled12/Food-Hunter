@@ -46,7 +46,6 @@
     }
 
     public function addMeal(){
-      $id=$this->partner->getId();
       $this->db=new DBController;
       $partnerId=$this->meal->getPartnerId();
       $mealname=$this->meal->getMealName();
