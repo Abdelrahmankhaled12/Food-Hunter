@@ -65,10 +65,23 @@
       $this->db->delete($query);
     }
 
+    public function updatemeal(){
+      $this->db=new DBController;
+      $mealId=$this->meal->getMealId();
+      $mealname=$this->meal->getMealName();
+      $description=$this->meal->getDescription();
+      $imageName=$this->meal->getImageName();
+      $image=$this->meal->getImage();
+      $imagetype=$this->meal->getImagetype();
+      $price=$this->meal->getPrice();
+      $query="UPDATE meal SET mealname='$mealname',description='$description',imageName='$imageName',image='$image',imagetype='$imagetype',price='$price' WHERE mealid=$mealId";
+      $this->db->update($query);
+    }
+
     public function getMeals(){
       $this->db=new DBController;
-      $id=(int)$this->partner->getId();
-      $query="SELECT mealid,mealname,description,imageName,image,imagetype,price FROM meal WHERE partnerid='$id'";
+      $id=$this->partner->getId();
+      $query="SELECT mealid,mealname,description,imageName,image,imagetype,price FROM meal WHERE partnerid=$id";
       $result=$this->db->select($query);
       if($result){
         $rows = array();
@@ -80,5 +93,22 @@
         echo "empty result";
         return [];
       }
+    }
+
+    public function getOrders(){
+      $this->db=new DBController;
+      $id=$this->partner->getId();
+      $query="SELECT delivers.orderid,delivers.mealname,delivers.price,delivers.feedback,delivers.ratings,delivers.review,user.email,user.name,user.phone,user.location from delivers INNER join user on delivers.userid=user.id WHERE delivers.partnerid=$id";
+      $result=$this->db->select($query);
+            if($result){
+              $rows = array();
+              while ($row = mysqli_fetch_assoc($result)) {
+              $rows[] = $row;
+            }
+            return $rows;
+            }else{
+              echo "empty result";
+              return [];
+            }
     }
   }

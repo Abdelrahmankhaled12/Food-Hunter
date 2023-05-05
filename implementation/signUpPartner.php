@@ -18,7 +18,7 @@
     $open=$partner->getOpen();
     $close=$partner->getClose();
     $fees=$partner->getFees();
-    $time=$partner->getStatus();
+    $time=$partner->getTime();
     $status=$partner->getStatus();
     $description=$partner->getDescription();
     $minOrder=$partner->getMinOrder();

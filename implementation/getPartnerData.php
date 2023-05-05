@@ -2,8 +2,9 @@
     require_once("../models/partner.php");
     require_once("../controllers/partnercontroller.php");
     if(isset($_GET)){
+      $email=$_GET["email"];
       $partner = new Custom\Partner;
-      $partner->setEmail($_GET["email"]);
+      $partner->setEmail("$email");
       $pcontro=new restaurant($partner);
       $rows=$pcontro->getData();
       $imageData = $rows[0]['logo'];
