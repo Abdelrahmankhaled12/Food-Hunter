@@ -2,11 +2,6 @@
   require_once("../models/partner.php");
   require_once("../controllers/partnercontroller.php");
     if(isset($_POST)){
-    /*$data=file_get_contents("php://input");
-    $user=json_decode($data,true);
-    $image=$_FILES[$user["image"]];
-    $logo=addslashes(file_get_contents($image["tmp_name"]));
-    $logo_name=$image["name"];*/
     $logo_name=$_FILES["image"]["name"];
     $logo=addslashes(file_get_contents($_FILES['image']['tmp_name']));
     $logoType=$_FILES["image"]["type"];
@@ -28,7 +23,7 @@
     $description=$partner->getDescription();
     $minOrder=$partner->getMinOrder();
     $role=$partner->getRoleid();
-    $query="insert into partner(email,password,name,location,phone,logoname,logo,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo','$open','$close','$fees','$time','$status','$description','$minOrder')";
+    $query="insert into partner(email,password,name,location,phone,logoname,logo,logotype,open,close,fees,time,status,description,minorder) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo','$logoType','$open','$close','$fees','$time','$status','$description','$minOrder')";
     $pcontro->signup($query);
     $query="insert into role(email,password,roleid) values('$email','$password','$role')";
     $pcontro->signup($query);

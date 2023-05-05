@@ -4,7 +4,7 @@
     //if(isset($_GET)){
       //$email=$_GET["email"];
       $partner = new Custom\Partner;
-      $partner->setEmail("shehab@gmail.com");
+      $partner->setEmail("abdelrahman@gmail.com");
       $pcontro=new restaurant($partner);
       $rows=$pcontro->getData();
       $imageData = $rows[0]['logo'];

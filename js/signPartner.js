@@ -30,8 +30,6 @@ function timeConvert(hour,min,sec) {
 
 submit.addEventListener('submit', function (e) {
 
-  e.preventDefault();
-
   openTime = timeConvert(hourOpen.value,minuteOpen.value,secondsOpen.value);
   closeTime =timeConvert(hourClose.value,minuteClose.value,secondsClose.value);
 
@@ -56,17 +54,17 @@ submit.addEventListener('submit', function (e) {
   formData.append('minorder', minOrder.value);
 
 
-  // const xhr = new XMLHttpRequest();
-  // xhr.open('POST', 'http://localhost/footer-hunter/implementation/signUpPartner.php', true);
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost/footer-hunter/implementation/signUpPartner.php', true);
 
-  // xhr.onload = function() {
-  //   if (xhr.status === 200) {
-  //     console.log('تم تحميل الصورة بنجاح.');
-  //   } else {
-  //     console.log('فشل تحميل الصورة.');
-  //   }
-  // };
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      console.log('تم تحميل الصورة بنجاح.');
+    } else {
+      console.log('فشل تحميل الصورة.');
+    }
+  };
 
-  // xhr.send(formData);
+  xhr.send(formData);
 });
 
