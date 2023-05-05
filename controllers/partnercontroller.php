@@ -54,7 +54,6 @@
       $image=$this->meal->getImage();
       $imagetype=$this->meal->getImagetype();
       $price=$this->meal->getPrice();
-      $this->db=new DBController;
       $query="INSERT INTO meal(partnerid,mealname,description,imageName,image,imagetype,price) VALUES ('$partnerId','$mealname','$description','$imageName','$image','$imagetype','$price')";
       $this->db->insert($query);
     }
