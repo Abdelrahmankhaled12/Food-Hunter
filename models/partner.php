@@ -16,13 +16,15 @@ class Partner {
     private $status;
     private $description;
     private $minorder;
+
+    private $category;
     private $roleid = 2;
 
     // Empty constructor
     public function __construct1() {}
 
     // Parameterized constructor
-    public function __construct2($email, $password, $name, $location, $phone, $logoName, $logo, $open, $close, $fees, $time, $status, $description, $minorder) {
+    public function __construct2($email, $password, $name, $location, $phone, $logoName, $logo, $open, $close, $fees, $time, $status, $description, $minorder,$category) {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
@@ -37,6 +39,7 @@ class Partner {
         $this->status = $status;
         $this->description = $description;
         $this->minorder = $minorder;
+        $this->category = $category;
     }
 
     // Getter and Setter methods
@@ -126,7 +129,7 @@ class Partner {
     public function setFees($fees) {
         $this->fees = $fees;
     }
-  
+
 	public function getTime() {
 		return $this->time;
 	}
@@ -168,6 +171,14 @@ class Partner {
 	
 	public function setRoleid($roleid){
 		$this->roleid = $roleid;
+		return $this;
+	}
+
+	public function getCategory() {
+		return $this->category;
+	}
+	public function setCategory($category){
+		$this->category = $category;
 		return $this;
 	}
 }
