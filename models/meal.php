@@ -4,20 +4,23 @@
     private $mealId;
     private $mealName;
     private $description;
-    private $category;
+    private $imageName;
     private $image;
+    private $imagetype;
     private $price;
 
     public function __construct1(){
 
     }
 
-    public function __construct2($partnerId,$mealName,$description,$category,$image,$price,$mealId=0){
+    public function __construct2($partnerId,$mealName,$description,$imageName,$image,$imagetype,$price,$mealId=0){
       $this->partnerId=$partnerId;
       $this->mealId=$mealId;
       $this->mealName=$mealName;
       $this->description=$description;
       $this->image=$image;
+      $this->imageName=$imageName;
+      $this->imagetype=$imagetype;
       $this->price=$price;
     }
 public function getPartnerId() {
@@ -52,14 +55,6 @@ public function getPartnerId() {
         $this->description = $description;
     }
 
-    public function getCategory() {
-        return $this->category;
-    }
-
-    public function setCategory($category) {
-        $this->category = $category;
-    }
-
     public function getImage() {
         return $this->image;
     }
@@ -75,4 +70,20 @@ public function getPartnerId() {
     public function setPrice($price) {
         $this->price = $price;
     }
-  }
+
+	public function getImageName() {
+		return $this->imageName;
+	}
+	public function setImageName($imageName) {
+		$this->imageName = $imageName;
+		return $this;
+	}
+
+	public function getImagetype() {
+		return $this->imagetype;
+	}
+	public function setImagetype($imagetype): self {
+		$this->imagetype = $imagetype;
+		return $this;
+	}
+}

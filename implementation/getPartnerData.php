@@ -1,10 +1,9 @@
 <?php
     require_once("../models/partner.php");
     require_once("../controllers/partnercontroller.php");
-    //if(isset($_GET)){
-      //$email=$_GET["email"];
+    if(isset($_GET)){
       $partner = new Custom\Partner;
-      $partner->setEmail("abdelrahman@gmail.com");
+      $partner->setEmail($_GET["email"]);
       $pcontro=new restaurant($partner);
       $rows=$pcontro->getData();
       $imageData = $rows[0]['logo'];
@@ -14,4 +13,4 @@
       $rows[0]["logo"]=$imageUrl;
       header('Content-Type: application/json');
       echo json_encode($rows);
-    //}
+    }
