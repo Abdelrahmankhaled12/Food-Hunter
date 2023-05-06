@@ -114,7 +114,7 @@
 
     public function getAllpartners(){
       $this->db=new DBController;
-      $query="SELECT  name,location,phone,logoname,logo,logotype,open,close,fees,time,status,description,minorder, category FROM partner";
+      $query="SELECT  id,name,location,phone,logoname,logo,logotype,open,close,fees,time,status,description,minorder, category FROM partner";
       $result=$this->db->select($query);
       if($result){
         $rows = array();

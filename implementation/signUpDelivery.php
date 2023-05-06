@@ -9,5 +9,10 @@
     $password=$delivery->getPass();
     $name=$delivery->getName();
     $phone=$delivery->getPhone();
-    $license;
+    $license=$delivery->getLicense();
+    $roleId=$delivery->getRoleId();
+    $query="INSERT INTO delivery(email,password,name,phone,license) VALUES ('$email','$password','$name','$phone','$license')";
+    $deliveryContro->signup($query);
+    $query="insert into role(email,password,roleid) values('$email','$password','$roleId')";
+    $deliveryContro->signup($query);
   }
