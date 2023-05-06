@@ -6,6 +6,7 @@
     private $name;
     private $phone;
     private $license;
+    private $roleId=4;
 
     public function __construct1(){
       
@@ -75,4 +76,7 @@
     }
 /*End for set and get license*/
 
-  }
+	public function getRoleId() {
+		return $this->roleId;
+	}
+}
