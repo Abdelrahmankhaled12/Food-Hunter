@@ -1,0 +1,14 @@
+<?php
+  require_once("../models/delivery.php");
+  require_once("../controllers/deliverycontroller.php");
+  if(isset($_POST)){
+    $delivery=new delivery;
+    $id=$_POST["id"];
+    $delivery->setName($_POST["name"]);
+    $delivery->setLicense(($_POST["license"]));
+    $delivery->setPass($_POST["password"]);
+    $delivery->setphone($_POST["phone"]);
+    $deliveryContro=new deliverycontro;
+    $deliveryContro->__construct2($delivery);
+    $deliveryContro->update();
+  }
