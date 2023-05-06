@@ -74,7 +74,7 @@
       $image=$this->meal->getImage();
       $imagetype=$this->meal->getImagetype();
       $price=$this->meal->getPrice();
-      $query="UPDATE meal SET mealname='$mealname',description='$description',imageName='$imageName',image='$image',imagetype='$imagetype',price='$price' WHERE mealid=$mealId";
+      $query="UPDATE meal SET mealname = :$mealname, description = :$description, imageName = :$imageName, image = :$image, imagetype = :$imagetype, price = :$price WHERE mealid = :$mealId";
       $this->db->update($query);
     }
 
