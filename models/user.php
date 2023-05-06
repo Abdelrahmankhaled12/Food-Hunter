@@ -7,6 +7,7 @@
     private $location;
     private $phone;
 
+		private $roleid=3; 
     public function __construct1(){
 
     }
@@ -65,5 +66,8 @@
 	}
 	public function setId($id){
 		$this->id = $id;
+	}
+	public function getRoleid() {
+		return $this->roleid;
 	}
 }
