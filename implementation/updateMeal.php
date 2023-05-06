@@ -10,6 +10,7 @@
     $meal->setMealId($id);
     $meal->setMealName($_POST["mealname"]);
     $meal->setDescription($_POST["description"]);
+    $meal->setPrice($_POST["price"]);
     $imagename=$_FILES["image"]["name"];
     $image=addslashes(file_get_contents($_FILES['image']['tmp_name']));
     $imagetype=$_FILES["image"]["type"];
