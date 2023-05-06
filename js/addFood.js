@@ -122,7 +122,6 @@ function editFoodFunc(data) {
         priceUpdateData.value = data[0].price;
 
         submitUpdateData.addEventListener('submit', function (e) {
-            e.preventDefault()
             const file = formFileUpdateData.files[0];
             const formData = new FormData();
             formData.append('mealid', data[0].mealid);
@@ -130,7 +129,6 @@ function editFoodFunc(data) {
             formData.append('mealname', foodnameUpdateData.value);
             formData.append('description', descriptionUpdateData.value);
             formData.append('price', priceUpdateData.value);
-            let fileInput = document.querySelector('input[type="file"]');
             
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost/footer-hunter/implementation/updateMeal.php', true);
