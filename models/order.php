@@ -1,29 +1,34 @@
 <?php
   class order{
+
+    private $orderId;
     private $deliveryId;
     private $userId;
     private $balance;
-    private $mealId;
+    private $mealname;
     private $price;
     private $partnerId;
-
     private $feedback;
-
     private $quantity;
-
+    private $ratings;
+    private $review;
+    private $status;
     public function __construct1(){
 
     }
 
-    public function __construct2($deliveryId,$userId,$balance,$mealId,$price,$partnerId,$feedback,$quantity){
+    public function __construct2($deliveryId,$userId,$balance,$mealname,$price,$partnerId,$feedback,$quantity,$ratings,$review,$status="pending"){
       $this->deliveryId=$deliveryId;
       $this->userId=$userId;
       $this->balance=$balance;
-      $this->mealId=$mealId;
+      $this->mealname=$mealname;
       $this->price=$price;
       $this->partnerId=$partnerId;
       $this->feedback=$feedback;
       $this->quantity=$quantity;
+      $this->ratings=$ratings;
+      $this->review=$review;
+      $this->status=$status;
     }
 public function getDeliveryId() {
         return $this->deliveryId;
@@ -49,12 +54,12 @@ public function getDeliveryId() {
         $this->balance = $balance;
     }
 
-    public function getMealId() {
-        return $this->mealId;
+    public function getMealname() {
+        return $this->mealname;
     }
 
-    public function setMealId($mealId) {
-        $this->mealId = $mealId;
+    public function setMealId($mealname) {
+        $this->mealname = $mealname;
     }
 
     public function getPrice() {
@@ -89,5 +94,35 @@ public function getDeliveryId() {
 
 	public function setQuantity($quantity){
 		$this->quantity = $quantity;
+	}
+
+	public function getOrderId() {
+		return $this->orderId;
+	}
+	public function setOrderId($orderId) {
+		$this->orderId = $orderId;
+		return $this;
+	}
+
+	public function getRatings() {
+		return $this->ratings;
+	}
+	public function setRatings($ratings): self {
+		$this->ratings = $ratings;
+		return $this;
+	}
+	public function getReview() {
+		return $this->review;
+	}
+	public function setReview($review){
+		$this->review = $review;
+		return $this;
+	}
+	public function getStatus() {
+		return $this->status;
+	}
+	public function setStatus($status){
+		$this->status = $status;
+		return $this;
 	}
 }
