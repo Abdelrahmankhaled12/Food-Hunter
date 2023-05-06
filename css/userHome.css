@@ -20,6 +20,10 @@
     margin-bottom: 5px;
 }
 
+.box p.footer {
+    font-size: 15px;
+}
+
 .box {
     padding-bottom: 15px;
     border-bottom: 1px solid #7773;
@@ -27,6 +31,9 @@
 
 .boxes a {
     text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .boxes a:hover img{

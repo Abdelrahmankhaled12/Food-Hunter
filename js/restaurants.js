@@ -1,51 +1,36 @@
-let data = [
-    {
-        "star": 5,
-        "count": 180,
-    },
-    {
-        "star": 4,
-        "count": 80,
-    },
-    {
-        "star": 3,
-        "count": 38,
-    },
-    {
-        "star": 2,
-        "count": 20,
-    },
-    {
-        "star": 1,
-        "count": 0,
-    },
+// Get Element
+let boxes = document.getElementById("boxes");
+// let iconSearch = document.getElementById("iconSearch");
 
-]
 
-let total_rating = 0,
-    rating_based_on_stars = 0;
 
-data.forEach(rating => {
-    total_rating += rating.count;
-    rating_based_on_stars += rating.count * rating.star;
-})
 
-data.forEach(rating => {
-    let rating_progress = `
-        <div class="rating_progress-value d-flex justify-content-evenly align-items-center">
-        <p>${rating.star} <span class="star">&#9733;</span></p>
-        <div class="progress">
-            <div class="bar" style="width:${(rating.count / total_rating) * 100}%"></div>
-        </div>
-        <p>${rating.count.toLocaleString()}</p>
-        </div>
-    `
-    document.querySelector(".rating_progress").innerHTML += rating_progress
+// let search = document.getElementById("search");
 
-})
 
-let rating_average = (rating_based_on_stars / total_rating ).toFixed(1);
+// search.addEventListener("change", (e) => {
+//     console.log(e.target.value)
+// })
 
-document.querySelector(".rating_average h1").innerHTML =rating_average;
-document.querySelector(".rating_average p").innerHTML = total_rating.toLocaleString();
-document.querySelector(".star-inner").style.width = (rating_average / 5) * 100 + "%";
+
+
+// Add Restaurants in Dom
+fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
+    .then(res => res.json())
+    .then(dataAll => {
+        dataAll.forEach(data => {
+            let div = document.createElement("div");
+            div.setAttribute("class", "col-lg-3 col-md-6  mt-3")
+            div.innerHTML = `
+                        <a href="./resraurant.html">
+                            <div class="box">
+                                <img src=${data.logo} alt="">
+                                <h5 class="name">${data.name}</h5>
+                                <p class="description">${data.category}</p>
+                            </div>
+                        </a>    
+                        `
+            boxes.append(div);
+        });
+    })
+

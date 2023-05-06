@@ -22,6 +22,8 @@ let checkInput = document.querySelectorAll('input[type="checkbox"]');
 
 let x = []
 
+console.log("ho")
+
 checkInput.forEach(element => {
   element.addEventListener("change", (e) => {
     if (x.length === 0) {
@@ -30,6 +32,7 @@ checkInput.forEach(element => {
       var check = x.filter(ele => ele !== e.target.value);
       x.length === check.length ? x.push(e.target.value): x = check;
     }
+    console.log(x)
   })
 });
 
