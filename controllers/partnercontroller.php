@@ -47,7 +47,7 @@
 
     public function addMeal(){
       $this->db=new DBController;
-      $partnerId=(int)$this->meal->getPartnerId();
+      $partnerId=$this->meal->getPartnerId();
       $mealname=$this->meal->getMealName();
       $description=$this->meal->getDescription();
       $imageName=$this->meal->getImageName();
@@ -81,7 +81,7 @@
     public function getMeals(){
       $this->db=new DBController;
       $id=$this->partner->getId();
-      $query="SELECT mealid,mealname,description,imageName,image,imagetype,price FROM meal WHERE partnerid=$id";
+      $query="SELECT mealid,mealname,description,imageName,image,imagetype,price FROM meal WHERE partnerid='$id'";
       $result=$this->db->select($query);
       if($result){
         $rows = array();
@@ -98,7 +98,7 @@
     public function getOrders(){
       $this->db=new DBController;
       $id=$this->partner->getId();
-      $query="SELECT delivers.orderid,delivers.mealname,delivers.price,delivers.feedback,delivers.ratings,delivers.review,user.email,user.name,user.phone,user.location from delivers INNER join user on delivers.userid=user.id WHERE delivers.partnerid=$id";
+      $query="SELECT delivers.orderid,delivers.mealname,delivers.price,delivers.feedback,delivers.ratings,delivers.review,user.email,user.name,user.phone,user.location from delivers INNER join user on delivers.userid=user.id WHERE delivers.partnerid='$id'";
       $result=$this->db->select($query);
             if($result){
               $rows = array();
