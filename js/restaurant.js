@@ -1,3 +1,31 @@
+// Get Data Restaurant 
+let dataRest = JSON.parse(localStorage.getItem("dataRest"));
+
+// Get Elements 
+document.getElementById("imgLogo").src = dataRest.logo;
+document.getElementById("status").innerHTML = dataRest.status;
+document.getElementById("nameRest").innerHTML = dataRest.name;
+document.getElementById("minorder").innerHTML = dataRest.minorder;
+document.getElementById("time").innerHTML = dataRest.time + " Mins";
+document.getElementById("fees").innerHTML = dataRest.fees + " L.E";
+document.getElementById("open").innerHTML = dataRest.open;
+document.getElementById("close").innerHTML = dataRest.close;
+document.getElementById("name").innerHTML  = dataRest.name + " ";
+document.getElementById("description").innerHTML = dataRest.description;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let data = [
     {
         "star": 5,

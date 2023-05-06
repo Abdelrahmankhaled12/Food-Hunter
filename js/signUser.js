@@ -6,89 +6,30 @@ let inputLocation = document.getElementById("location");
 let inputConfirmPassword = document.getElementById("confirmPassword");
 let submit = document.getElementById("submit");
 
-let nameValue = "",
-    emailValue = "",
-    passValue ="",
-    conPassVAlue ="",
-    phoneValue ="",
-    locationValue = "";
 
 
+submit.addEventListener('submit', function (e) {
+    const formData = new FormData();
+    formData.append('name', inputName.value);
+    formData.append('email', inputEmail.value);
+    formData.append('phone', inputPhone.value);
+    formData.append('password', inputPassword.value);
+    formData.append('location', inputLocation.value);
 
 
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost/footer-hunter/implementation/signUpuser.php', true);
 
-inputName.addEventListener("change", (event) => {
-    if (event.target.value.trim() && event.target.value.length >= 5) {
-        nameValue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-})
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            console.log('تم تحميل الصورة بنجاح.');
+        } else {
+            console.log('فشل تحميل الصورة.');
+        }
+    };
 
-inputEmail.addEventListener("change", (event) => {
-    if (event.target.value.trim() && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)) {
-        emailValue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-})
+    xhr.send(formData);
 
-inputPassword.addEventListener("change", (event) => {
-    if (event.target.value.trim() && event.target.value.length >= 8) {
-        passValue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-})
+    localStorage.setItem("emailUser", JSON.stringify(inputEmail.value))
+});
 
-
-inputConfirmPassword.addEventListener("change", (event) => {
-    if (event.target.value.trim() && event.target.value === passValue) {
-        conPassVAlue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-})
-
-inputLocation.addEventListener("change", (event) => {
-    if (event.target.value.trim() && event.target.value.length >= 10) {
-        locationValue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-})
-
-
-
-inputPhone.addEventListener("change", (event) => {
-    if (event.target.value.trim() && event.target.value.length === 11) {
-        phoneValue = event.target.value;
-        event.target.classList.remove("false");
-        event.target.classList.add("true");
-    } else {
-        event.target.classList.remove("true");
-        event.target.classList.add("false");
-    }
-})
-
-
-submit.addEventListener("click", (e) => {
-    if (!(nameValue.trim() && emailValue.trim() && passValue.trim() && locationValue.trim() && conPassVAlue.trim() && conPassVAlue === passValue && phone.trim())) {
-        e.preventDefault();
-    }
-})
