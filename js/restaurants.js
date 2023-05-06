@@ -22,7 +22,7 @@ fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
             let div = document.createElement("div");
             div.setAttribute("class", "col-lg-3 col-md-6  mt-3")
             div.innerHTML = `
-                        <a href="./resraurant.html">
+                        <a class="link" href="./resraurant.html" id=${data.id}>
                             <div class="box">
                                 <img src=${data.logo} alt="">
                                 <h5 class="name">${data.name}</h5>
@@ -32,5 +32,16 @@ fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
                         `
             boxes.append(div);
         });
+
+        let links = document.querySelectorAll(".link");
+        links.forEach(link=>{
+            link.addEventListener("click",(e)=>{
+                dataAll.forEach(data=>{
+                    if(+data.id === +link.getAttribute("id")){
+                        localStorage.setItem("dataRest",JSON.stringify(data));
+                    }
+                })
+            })
+        })
     })
 
