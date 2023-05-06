@@ -82,9 +82,9 @@
                             <div class="container">
                                 <div class="image d-flex justify-content-center align-items-center ">
                                     <div class="box text-center">
-                                        <img src="https://images.deliveryhero.io/image/talabat/restaurants/logo638177584924893747.jpg?width=180"
+                                        <img id="imgLogo"
                                             alt="">
-                                        <h1>Albayt Alkhalijiu</h1>
+                                        <h1 id="nameRest"></h1>
                                     </div>
                                 </div>
                                 <div class="row pt-3">
@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="text ps-3">
                                                 <h6>Restaurant Status</h6>
-                                                <span>Busy</span>
+                                                <span id="status"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +106,7 @@
                                             </div>
                                             <div class="text ps-3">
                                                 <h6>Min. Order</h6>
-                                                <span>0 L.E</span>
+                                                <span id="minorder"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@
                                             </div>
                                             <div class="text ps-3">
                                                 <h6>Delivery Time</h6>
-                                                <span>90 Mins</span>
+                                                <span id="time"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                             </div>
                                             <div class="text ps-3">
                                                 <h6>Delivery Fees</h6>
-                                                <span>20 L.E</span>
+                                                <span id="fees"> </span>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +139,7 @@
                                             </div>
                                             <div class="text ps-3">
                                                 <h6>Open At</h6>
-                                                <span>12:00:00</span>
+                                                <span id="open"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -150,54 +150,18 @@
                                             </div>
                                             <div class="text ps-3">
                                                 <h6>Close At</h6>
-                                                <span>23:00:00</span>
+                                                <span id="close"></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="description p-3 mt-5">
-                                    <h4>Albayt Alkhalijiu delivers to you</h4>
-                                    <p>Broast Meal is a restaurant located in Egypt, serving a selection of Fried
-                                        chicken,
-                                        Sandwiches, Fast Food that delivers across Sidi Besher Bahary.
-                                        Thier best selling dishes are Grilled Kofta Syrian Sandwich, Chicken Shawarma
-                                        Syrian
-                                        Sandwich, Hot Zinger Sandwich and Syrian Crab Fattah, although they have a
-                                        variety
-                                        of dishes and meals to choose from like Fried chicken, Sandwiches, Fast Food.
-                                    </p>
+                                    <h4><span id="name"></span>delivers to you</h4>
+                                    <p id="description"></p>
                                 </div>
                                 <div class="dishes pt-5 pb-5">
                                     <h6>Best Seller Dishes</h6>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-6 mt-3">
-                                            <div class="dish text-center">
-                                                <img src="https://images.deliveryhero.io/image/talabat/MenuItems/mmw_638017117421936062"
-                                                    class="img-fluid" alt="">
-                                                <p>Grilled Kofta Syrian Sandwich</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 mt-3">
-                                            <div class="dish text-center">
-                                                <img src="https://images.deliveryhero.io/image/talabat/MenuItems/mmw_638017117421936062"
-                                                    class="img-fluid" alt="">
-                                                <p>Grilled Kofta Syrian Sandwich</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 mt-3">
-                                            <div class="dish text-center">
-                                                <img src="https://images.deliveryhero.io/image/talabat/MenuItems/mmw_638017117421936062"
-                                                    class="img-fluid" alt="">
-                                                <p>Grilled Kofta Syrian Sandwich</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 mt-3">
-                                            <div class="dish text-center">
-                                                <img src="https://images.deliveryhero.io/image/talabat/MenuItems/mmw_638017117421936062"
-                                                    class="img-fluid" alt="">
-                                                <p>Grilled Kofta Syrian Sandwich</p>
-                                            </div>
-                                        </div>
+                                    <div class="row" id="dishes">
                                     </div>
                                 </div>
                             </div>
@@ -218,6 +182,8 @@
             </div>
         </div>
     </div>
+    
+    <script src="../../js/profileRestaurant.js"></script>
     <!-- File Js Sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- File Js Bootstrap -->
