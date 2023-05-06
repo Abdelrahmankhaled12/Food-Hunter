@@ -11,7 +11,7 @@
     $email=$partner->getEmail();
     $password=$partner->getPassword();
     $name=$partner->getName();
-    $address=$_POST["address"];
+    $address=$partner->getLocation();
     $phone=$partner->getPhone();
     $logoName=$partner->getLogoName();
     $logo=$partner->getLogo();
@@ -22,7 +22,7 @@
     $status=$partner->getStatus();
     $description=$partner->getDescription();
     $minOrder=$partner->getMinOrder();
-    $category=$_POST["category"];
+    $category=$partner->getCategory();
     $role=$partner->getRoleid();
     $query="insert into partner(email,password,name,location,phone,logoname,logo,logotype,open,close,fees,time,status,description,minorder,category) VALUES ('$email','$password','$name','$address','$phone','$logo_name','$logo','$logoType','$open','$close','$fees','$time','$status','$description','$minOrder','$category')";
     $pcontro->signup($query);
