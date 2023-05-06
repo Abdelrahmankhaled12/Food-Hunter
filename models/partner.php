@@ -9,6 +9,8 @@ class Partner {
     private $phone;
     private $logoName;
     private $logo;
+
+    private$logotype;
     private $open;
     private $close;
     private $fees;
@@ -179,6 +181,13 @@ class Partner {
 	}
 	public function setCategory($category){
 		$this->category = $category;
+		return $this;
+	}
+	public function getLogotype() {
+		return $this->logotype;
+	}
+	public function setLogotype($logotype){
+		$this->logotype = $logotype;
 		return $this;
 	}
 }

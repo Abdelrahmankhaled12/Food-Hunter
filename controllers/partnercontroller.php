@@ -127,4 +127,25 @@
         return [];
       }
     }
+
+    public function updateData(){
+      $id=$this->partner->getId();
+      $password=$this->partner->getPassword();
+      $name=$this->partner->getName();
+      $location=$this->partner->getLocation();
+      $phone=$this->partner->getPhone();
+      $logoname=$this->partner->getLogoName();
+      $logo=$this->partner->getLogo();
+      $logotype=$this->partner->getLogotype();
+      $open=$this->partner->getOpen();
+      $close=$this->partner->getClose();
+      $fees=$this->partner->getFees();
+      $time=$this->partner->getTime();
+      $status=$this->partner->getStatus();
+      $description=$this->partner->getDescription();
+      $minorder=$this->partner->getMinorder();
+      $category=$this->partner->getCategory();
+      $query="UPDATE partner SET password='$password',name='$name',location='$location',phone='$phone',logoname='$logoname',logo='$logo',logotype='$logotype',open='$open',close='$close',fees='$fees',time='$time',status='$status',description='$description',minorder='$minorder',category='$category' WHERE id='$id'";
+      $this->db->update($query);
+    }
   }
