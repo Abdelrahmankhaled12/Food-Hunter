@@ -86,3 +86,9 @@ input:-internal-autofill-selected {
     background-color: transparent !important;
     color: fieldtext !important;
 }
+
+
+.form-check-input:checked {
+    background-color: var(--orange-color) !important;
+    border-color: #ffa35866;
+}
