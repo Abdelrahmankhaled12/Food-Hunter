@@ -1,22 +1,24 @@
-// // Get Element Name Partner
-// let namePartner = document.getElementById("namePartner");
+// Get Element Name Partner
+let namePartner = document.getElementById("namePartner");
 
 // Call Data From Local Storage
-const data = JSON.parse(localStorage.getItem('data'));
+let partnerData = JSON.parse(localStorage.getItem("dataPartner"))
 
-// // Add Name Partner
-// namePartner.innerHTML = data.name + " " + `<i class="fa-solid fa-shop"></i>`;
+// Add Name Partner
+namePartner.innerHTML = partnerData.name + " " + `<i class="fa-solid fa-shop"></i>`;
 
 // Get Elements Form 
 let foodName = document.getElementById("foodname"),
     description = document.getElementById("description"),
     price = document.getElementById("price"),
-    formFile = document.getElementById("formFile"),
     submit = document.getElementById("submit"),
     fileInput = document.querySelector('input[type="file"]');
+    foodnameUpdateData = document.getElementById("foodnameUpdateData"),
+    descriptionUpdateData = document.getElementById("descriptionUpdateData"),
+    priceUpdateData = document.getElementById("priceUpdateData"),
+    submitUpdateData = document.getElementById("submitUpdateData"),
+    formFileUpdateData = document.getElementById('formFileUpdateData');
 
-
-let partnerData = JSON.parse(localStorage.getItem("dataPartner"))
 
 
 // Add Event Listner
@@ -44,7 +46,6 @@ submit.addEventListener('submit', function (e) {
     xhr.send(formData);
 });
 
-
 // Create Function Add Foods in Dom
 function addFoods() {
     fetch(`http://localhost/footer-hunter/implementation/getMeals.php?partnerid=${+partnerData.id}`)
@@ -52,15 +53,16 @@ function addFoods() {
         .then((data) => {
             data.forEach(element => {
                 let tr = document.createElement("tr");
-                tr.setAttribute("id", element.id);
+                tr.setAttribute("id", element.mealid);
                 tr.innerHTML = `
                             <th scope="row">${element.mealname}</th>
                             <td>${element.description}</td>
                             <td><img src=${element.image} alt=""></td>
                             <td>${element.price}</td>
                             <td>
-                                <button class="delete me-2" id=${element.mealid}>delete</button>
-                                <button class="edit" id=${element.mealid}>edit</button>
+                                <button class="delete me-2"  data-id=${element.mealid}>delete</button>
+                                <button class="edit" data-id=${element.mealid} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                                aria-controls="offcanvasExample">edit</button>
                             </td>
         `
                 document.querySelector("tbody").append(tr)
@@ -80,7 +82,8 @@ function addFoods() {
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            deleteFood(deletef.getAttribute("id"));
+                            document.getElementById(deletef.getAttribute("data-id")).remove();
+                            deleteFood(deletef.getAttribute("data-id"));
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
@@ -97,13 +100,11 @@ function addFoods() {
 
 function deleteFood(id) {
     const formData = new FormData();
-    formData.append('mealid',id);
+    formData.append('mealid', id);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost/footer-hunter/implementation/deletemeal.php', true);
     xhr.send(formData);
-    addFoods()
 }
 
 // Call Function Add Foods 
 addFoods();
-

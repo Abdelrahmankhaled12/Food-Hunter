@@ -126,7 +126,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -149,6 +148,54 @@
     </div>
 </div>
 
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="container">
+            <form id="submitUpdateData">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <label for="foodnameUpdateData" class="form-label">Title
+                            </label>
+                            <input type="text" class="form-control" placeholder="e.g Arabian Shawarma" id="foodnameUpdateData"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <label for="descriptionUpdateData" class="form-label">Description
+                            </label>
+                            <input type="text" class="form-control"
+                                placeholder="e.g A creamy combination of cheese mayo base..." id="descriptionUpdateData" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-3">
+                            <label for="priceUpdateData" class="form-label">Price
+                            </label>
+                            <input type="number" class="form-control" placeholder="e.g 9.99" id="priceUpdateData" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="mb-3">
+                            <label for="formFileUpdateData" class="form-label">Food Image</label>
+                            <input class="form-control" type="file" id="formFileUpdateData" name="image" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="buttonAddFood">Update Food</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- File Js Sweet alert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- File Js Bootstrap -->
@@ -159,7 +206,7 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
 <!-- File Js Food -->
-<script src="../../js/addFood.js"></script>
+<script src="../../js/addfood.js"></script>
 
 
 </body>

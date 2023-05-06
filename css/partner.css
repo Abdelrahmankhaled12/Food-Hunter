@@ -97,7 +97,7 @@
 }
 
 
-.partner .buttonAddFood {
+.buttonAddFood {
     border: 1px solid var(--orange-color);
     background-color: var(--orange-color);
     color: white;
@@ -110,7 +110,7 @@
     transition: 0.5s;
 }
 
-.partner .buttonAddFood:hover {
+.buttonAddFood:hover {
     color: var(--orange-color);
     background-color: white;
 }
@@ -277,4 +277,17 @@
 
 .partner .setting h3 {
     color: var(--grey-color);
+}
+
+.offcanvas-start {
+    width: 100% !important;
+}
+
+
+.offcanvas-start input:focus,
+.offcanvas-start select:focus {
+    background-color: transparent;
+    border-color: #ffa35866;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #ffa35866;
 }
