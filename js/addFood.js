@@ -13,11 +13,6 @@ let foodName = document.getElementById("foodname"),
     price = document.getElementById("price"),
     submit = document.getElementById("submit"),
     fileInput = document.querySelector('input[type="file"]');
-    foodnameUpdateData = document.getElementById("foodnameUpdateData"),
-    descriptionUpdateData = document.getElementById("descriptionUpdateData"),
-    priceUpdateData = document.getElementById("priceUpdateData"),
-    submitUpdateData = document.getElementById("submitUpdateData"),
-    formFileUpdateData = document.getElementById('formFileUpdateData');
 
 
 
@@ -94,6 +89,14 @@ function addFoods() {
                 })
             })
 
+            // Edit Food
+            let editFoods = document.querySelectorAll(".edit");
+            editFoods.forEach(editFood => {
+                editFood.addEventListener("click", () => {
+                    editFoodFunc(data.filter(element=>element.mealid === editFood.getAttribute("data-id")))
+                })
+            })
+
         })
 }
 
@@ -104,6 +107,43 @@ function deleteFood(id) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost/footer-hunter/implementation/deletemeal.php', true);
     xhr.send(formData);
+}
+
+
+function editFoodFunc(data) {
+    let foodnameUpdateData = document.getElementById("foodnameUpdateData"),
+        descriptionUpdateData = document.getElementById("descriptionUpdateData"),
+        priceUpdateData = document.getElementById("priceUpdateData"),
+        submitUpdateData = document.getElementById("submitUpdateData"),
+        formFileUpdateData = document.getElementById('formFileUpdateData');
+
+        foodnameUpdateData.value = data[0].mealname;
+        descriptionUpdateData.value = data[0].description;
+        priceUpdateData.value = data[0].price;
+
+        submitUpdateData.addEventListener('submit', function (e) {
+            e.preventDefault()
+            const file = formFileUpdateData.files[0];
+            const formData = new FormData();
+            formData.append('mealid', data[0].mealid);
+            formData.append('image', formFileUpdateData);
+            formData.append('mealname', foodnameUpdateData.value);
+            formData.append('description', descriptionUpdateData.value);
+            formData.append('price', priceUpdateData.value);
+        
+            console.log(data[0].mealid)
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost/footer-hunter/implementation/updateMeal.php', true);
+        
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log('تم تحميل الصورة بنجاح.');
+                } else {
+                    console.log('فشل تحميل الصورة.');
+                }
+            };
+            xhr.send(formData);
+        });
 }
 
 // Call Function Add Foods 
