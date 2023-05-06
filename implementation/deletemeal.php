@@ -6,7 +6,8 @@
     $partner=new Custom\Partner;
     $pcontro=new restaurant($partner);
     $meal=new meal;
-    $meal->setMealId($_POST["mealid"]);
+    $id=$_POST["mealid"];
+    $meal->setMealId($id);
     $pcontro->setMeal($meal);
     $pcontro->deleteMeal();
   }
