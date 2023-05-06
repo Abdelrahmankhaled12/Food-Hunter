@@ -14,7 +14,7 @@
     <!-- File Css Main -->
     <link rel="stylesheet" href="../../css/style.css" />
     <!-- File Css Home -->
-
+    <link rel="stylesheet" href="../../css/userHome.css">
     <!-- File Css Header -->
     <link rel="stylesheet" href="../../css/header.css">
     <!-- File Css Footer -->
@@ -49,34 +49,151 @@
         </nav>
     </header>
     <!-- End Header -->
-
     <!-- Start restaurants -->
-<div class="restaurants pt-5 pb-5">
-    <div class="container">
-        <div class="title">
-            <h2>Restaurants for delivery</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <ul>
-                    <li>Food</li>
-                    <li>Food</li>
-                    <li>Food</li>
-                    <li>Food</li>
-                    <li>Food</li>
-                    <li>Food</li>
-                    <li>Food</li>
-                </ul>
+    <div class="restaurants pt-5 pb-5">
+        <div class="container">
+            <div class="title">
+                <h2>Restaurants for delivery</h2>
             </div>
-            <div class="col-lg-8">
-                
+            <div class="row pt-2 pb-5">
+                <div class="col-lg-3 col-md-3">
+                    <h5 class="titleFilter">CUISINES</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Pizza
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            SandWiches
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Cold
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Sushi
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Cold
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Burgers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Chinese
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Shawarma
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Food fast
+                        </label>
+                    </div>
+                    <button class="apply">Apply</button>
+                </div>
+                <div class="col-lg-7 col-md-9">
+                    <div class="boxes">
+                        <a href="" class="d-block mb-3">
+                            <div class="box d-flex">
+                                <img src="https://images.deliveryhero.io/image/talabat/restaurants/%d9%84%d9%88%d8%ba%d9%88_%d8%ac%d8%af%d9%8a%d8%af_637613465930129993.jpg?width=180"
+                                    alt="">
+                                <div class="details">
+                                    <h5 id="nameRestaurants">nameRestaurants</h5>
+                                    <p class="categories" id="categories"> categories,categories,categories</p>
+                                    <p>Within <span id="timeDelivery">15</span>mins Delivery: <span
+                                            id="delivery">25.00</span> min: <span id="min">150.00</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="d-block  mb-3">
+                            <div class="box d-flex">
+                                <img src="https://images.deliveryhero.io/image/talabat/restaurants/%d9%84%d9%88%d8%ba%d9%88_%d8%ac%d8%af%d9%8a%d8%af_637613465930129993.jpg?width=180"
+                                    alt="">
+                                <div class="details">
+                                    <h5 id="nameRestaurants">nameRestaurants</h5>
+                                    <p class="categories" id="categories"> categories,categories,categories</p>
+                                    <p>Within <span id="timeDelivery">15</span>mins Delivery: <span
+                                            id="delivery">25.00</span> min: <span id="min">150.00</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="d-block mb-3">
+                            <div class="box d-flex">
+                                <img src="https://images.deliveryhero.io/image/talabat/restaurants/%d9%84%d9%88%d8%ba%d9%88_%d8%ac%d8%af%d9%8a%d8%af_637613465930129993.jpg?width=180"
+                                    alt="">
+                                <div class="details">
+                                    <h5 id="nameRestaurants">nameRestaurants</h5>
+                                    <p class="categories" id="categories"> categories,categories,categories</p>
+                                    <p>Within <span id="timeDelivery">15</span>mins Delivery: <span
+                                            id="delivery">25.00</span> min: <span id="min">150.00</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="d-block  mb-3">
+                            <div class="box d-flex">
+                                <img src="https://images.deliveryhero.io/image/talabat/restaurants/%d9%84%d9%88%d8%ba%d9%88_%d8%ac%d8%af%d9%8a%d8%af_637613465930129993.jpg?width=180"
+                                    alt="">
+                                <div class="details">
+                                    <h5 id="nameRestaurants">nameRestaurants</h5>
+                                    <p class="categories" id="categories"> categories,categories,categories</p>
+                                    <p>Within <span id="timeDelivery">15</span>mins Delivery: <span
+                                            id="delivery">25.00</span> min: <span id="min">150.00</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="d-block mb-3">
+                            <div class="box d-flex">
+                                <img src="https://images.deliveryhero.io/image/talabat/restaurants/%d9%84%d9%88%d8%ba%d9%88_%d8%ac%d8%af%d9%8a%d8%af_637613465930129993.jpg?width=180"
+                                    alt="">
+                                <div class="details">
+                                    <h5 id="nameRestaurants">nameRestaurants</h5>
+                                    <p class="categories" id="categories"> categories,categories,categories</p>
+                                    <p>Within <span id="timeDelivery">15</span>mins Delivery: <span
+                                            id="delivery">25.00</span> min: <span id="min">150.00</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="d-block  mb-3">
+                            <div class="box d-flex">
+                                <img src="https://images.deliveryhero.io/image/talabat/restaurants/%d9%84%d9%88%d8%ba%d9%88_%d8%ac%d8%af%d9%8a%d8%af_637613465930129993.jpg?width=180"
+                                    alt="">
+                                <div class="details">
+                                    <h5 id="nameRestaurants">nameRestaurants</h5>
+                                    <p class="categories" id="categories"> categories,categories,categories</p>
+                                    <p>Within <span id="timeDelivery">15</span>mins Delivery: <span
+                                            id="delivery">25.00</span> min: <span id="min">150.00</span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
+    <!-- End restaurants -->
     <!-- Start Footer -->
     <footer class="pt-5 pb-5">
         <div class="container">
