@@ -7,7 +7,6 @@
     private $price;
     private $partnerId;
 
-    private $feedback;
 
     private $quantity;
 
