@@ -178,7 +178,6 @@ class Partner {
 		return $this->category;
 	}
 	public function setCategory($category){
-		$this->category = $category;
 		return $this;
 	}
 }
