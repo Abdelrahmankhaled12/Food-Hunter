@@ -5,6 +5,7 @@
     private $email;
     private $password;
 
+    private $roleId=1;
     public function __construct1()
     {
       
@@ -53,6 +54,9 @@
     }
 /*End for set and get pass*/
 
-  }
+	public function getRoleId() {
+		return $this->roleId;
+	}
+}
 
 ?>
