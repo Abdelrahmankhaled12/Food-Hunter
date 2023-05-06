@@ -60,14 +60,14 @@
 
     public function deleteMeal(){
       $this->db=new DBController;
-      $id=(int)$this->meal->getMealId();
+      $id=$this->meal->getMealId();
       $query="DELETE FROM meal WHERE mealid='$id'";
       $this->db->delete($query);
     }
 
     public function updatemeal(){
       $this->db=new DBController;
-      $mealId=(int)$this->meal->getMealId();
+      $mealId=$this->meal->getMealId();
       $mealname=$this->meal->getMealName();
       $description=$this->meal->getDescription();
       $imageName=$this->meal->getImageName();
@@ -110,5 +110,21 @@
               echo "empty result";
               return [];
             }
+    }
+
+    public function getAllpartners(){
+      $this->db=new DBController;
+      $query="SELECT  name,location,phone,logoname,logo,logotype,open,close,fees,time,status,description,minorder, category FROM partner";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+        return [];
+      }
     }
   }
