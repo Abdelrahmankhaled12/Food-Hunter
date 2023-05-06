@@ -68,8 +68,8 @@
 
     public function getMeals(){
       $this->db=new DBController;
-      $id=(int)$this->partner->getId();
-      $query="SELECT mealid,mealname,description,imageName,image,imagetype,price FROM meal WHERE partnerid='$id'";
+      $id=$this->partner->getId();
+      $query="SELECT mealid,mealname,description,imageName,image,imagetype,price FROM meal WHERE partnerid=$id";
       $result=$this->db->select($query);
       if($result){
         $rows = array();

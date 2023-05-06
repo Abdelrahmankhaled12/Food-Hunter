@@ -9,12 +9,12 @@ let totalOrders = document.getElementById("totalOrders");
 const data = JSON.parse(localStorage.getItem('data'));
 
 
-fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=lol@gmail.com`)
+fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${data}`)
 .then(res=>res.json())
 .then(data => {
-
+    namePartner.innerHTML = data[0].name + " " + `<i class="fa-solid fa-shop"></i>`; 
+    localStorage.setItem("dataPartner",JSON.stringify(data[0]))
 })
 
 
-namePartner.innerHTML = data.name + " " + `<i class="fa-solid fa-shop"></i>`; 
 
