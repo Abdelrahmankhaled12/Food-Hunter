@@ -30,7 +30,6 @@ checkInput.forEach(element => {
       var check = x.filter(ele => ele !== e.target.value);
       x.length === check.length ? x.push(e.target.value): x = check;
     }
-    console.log(x.join())
   })
 });
 
@@ -67,6 +66,8 @@ submit.addEventListener('submit', function (e) {
   formData.append('open', openTime);
   formData.append('status', statuss.value);
   formData.append('minorder', minOrder.value);
+  formData.append('category', x.join());
+
 
 
   const xhr = new XMLHttpRequest();
