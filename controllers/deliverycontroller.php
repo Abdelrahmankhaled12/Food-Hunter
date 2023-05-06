@@ -15,4 +15,14 @@
       $this->db=new DBController;
       $this->delivery=$delivery;
     }
+
+    public function update(){
+      $id=$this->delivery->getId();
+      $name=$this->delivery->getName();
+      $license=$this->delivery->getLicense();
+      $password=$this->delivery->getPass();
+      $phone=$this->delivery->getPhone();
+      $query="UPDATE delivery SET password='$password',name='$name',phone='$phone',license='$license' WHERE id='$id'";
+      $this->db->update($query);
+    }
   }
