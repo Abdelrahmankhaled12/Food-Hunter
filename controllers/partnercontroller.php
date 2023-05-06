@@ -67,7 +67,7 @@
 
     public function updatemeal(){
       $this->db=new DBController;
-      $mealId=$this->meal->getMealId();
+      $mealId=(int)$this->meal->getMealId();
       $mealname=$this->meal->getMealName();
       $description=$this->meal->getDescription();
       $imageName=$this->meal->getImageName();
