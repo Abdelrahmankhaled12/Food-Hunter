@@ -47,10 +47,6 @@ submit.addEventListener('submit', function (e) {
   openTime = timeConvert(hourOpen.value, minuteOpen.value, secondsOpen.value);
   closeTime = timeConvert(hourClose.value, minuteClose.value, secondsClose.value);
 
-  console.log(openTime)
-  console.log(closeTime)
-
-
   const file = fileInput.files[0];
   const formData = new FormData();
   formData.append('image', file);
