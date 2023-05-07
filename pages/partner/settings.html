@@ -83,7 +83,7 @@
                                                 <label for="foodname" class="form-label">Name Restaurant
                                                 </label>
                                                 <input type="text" class="form-control"
-                                                    placeholder="e.g Albayt Alkhalijiu" id="foodname" required>
+                                                    placeholder="e.g Albayt Alkhalijiu" id="name" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -98,26 +98,26 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="mb-3">
-                                                <label for="size" class="form-label">Delivery Fees
+                                                <label for="deliveryFees" class="form-label">Delivery Fees
                                                 </label>
                                                 <input type="number" min="1" class="form-control" placeholder="e.g 9.99"
-                                                    id="size" required>
+                                                    id="deliveryFees" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="mb-3">
-                                                <label for="price" class="form-label">Delivery Time
+                                                <label for="deliveryTime" class="form-label">Delivery Time
                                                 </label>
                                                 <input type="number" min="1" class="form-control" placeholder="e.g 9.99"
-                                                    id="price" required>
+                                                    id="deliveryTime" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="mb-3">
-                                                <label for="discount" class="form-label">Min. Order
+                                                <label for="minOrder" class="form-label">Min. Order
                                                 </label>
                                                 <input type="number" min="1" class="form-control" placeholder="e.g 9.99"
-                                                    id="discount" required>
+                                                    id="minOrder" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -226,6 +226,92 @@
                                                     placeholder="e.g res12*******" id="confirmPassword" required>
                                             </div>
                                         </div>
+                                        <div class="check">
+                                            <h4>Food</h4>
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Pizza"
+                                                            id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Pizza
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="SandWiches" id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">
+                                                            SandWiches
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Cold"
+                                                            id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Cold
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Sushi"
+                                                            id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">
+                                                            Sushi
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Cold"
+                                                            id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Cold
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Burgers"
+                                                            id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">
+                                                            Burgers
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Chinese"
+                                                            id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">
+                                                            Chinese
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="Shawarma"
+                                                            id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">
+                                                            Shawarma
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="Food fast" id="flexCheckChecked">
+                                                        <label class="form-check-label" for="flexCheckChecked">
+                                                            Food fast
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-4">
                                             <button type="submit" class="buttonAddFood">Update Data</button>
                                         </div>
@@ -260,6 +346,7 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 
+        <script src="../../js/settings.js"></script>
 
     </body>
 

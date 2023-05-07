@@ -6,6 +6,9 @@ fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
 .then(dataAll=>{
     dataAll.forEach(data => {
         let a = document.createElement("a");
+        a.href = "restaurantUser.html"
+        a.id = data.id;
+        a.classList.add("link")
         a.innerHTML = `
         <div class="box d-flex">
             <img src=${data.logo} alt="">
@@ -16,7 +19,14 @@ fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
             </div>
         </div>        
         `
-
         boxes.append(a);
     });
+
+    let links = document.querySelectorAll(".link");
+
+    links.forEach(link=>{
+        link.addEventListener("click",()=>{
+            localStorage.setItem("linkPage",JSON.stringify(link.getAttribute("id")));
+        })
+    })
 })
