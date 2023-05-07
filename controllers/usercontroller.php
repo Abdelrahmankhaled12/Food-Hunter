@@ -57,4 +57,19 @@
       $query="INSERT INTO delivers(deliveryid,userid,balance,mealname,price,partnerid,feedback,quantity,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$mealname','$price','$partnerId','$feedback','$quantity','$ratings','$review','$status')";
       $this->db->insert($query);
     }
+
+    public function getOrders(){
+      $userId=$this->user->getId();
+      $query="SELECT partner.name as restaurant,delivers.mealname,delivers.price,delivers.staus FROM delivers INNER join partner on delivers.partnerid=partner.id WHERE delivers.userid='$userId'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+      }
+    }
   }
