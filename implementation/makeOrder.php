@@ -11,4 +11,5 @@
     $usercontro=new usercontro;
     $usercontro->__construct1();
     $usercontro->setOrder($order);
+    $usercontro->makeOrder();
   }
