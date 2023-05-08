@@ -1,8 +1,8 @@
 <?php
   require_once("../controllers/admincontroller.php");
-  if(isset($_POST)){
-    $deliveryId=$_POST["deliveryId"];
-    $adminId=$_POST["adminId"];
+  if(isset($_GET)){
+    $deliveryId=$_GET["deliveryId"];
+    $adminId=$_POST["1"];
     $admin=new admin;
     $admin->setId($id);
     $admincontro=new admincontroller;
