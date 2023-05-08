@@ -27,24 +27,6 @@
     }
 /*End Set and get Id*/
 
-/*Set and get for name */
-    public function setName($name){
-      $this->name=$name;
-    }
-    public function getName(){
-      return $this->name;
-    }
-/*End set and get name*/
-
-/*Set and get fo email*/ 
-    public function setEmail($email){
-      $this->email=$email;
-    }
-    public function getEmail(){
-      return $this->email;
-    }
-/*End set and get email*/
-
 /*Set and get for pass*/
     public function setPass($password){
       $this->password=$password;
