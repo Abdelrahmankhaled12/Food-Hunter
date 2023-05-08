@@ -11,7 +11,7 @@
     $phone=$delivery->getPhone();
     $license=$delivery->getLicense();
     $roleId=$delivery->getRoleId();
-    $query="INSERT INTO delivery(email,password,name,phone,license) VALUES ('$email','$password','$name','$phone','$license')";
+    $query="INSERT INTO delivery(email,password,name,phone,license,hired) VALUES ('$email','$password','$name','$phone','$license','no','1')";
     $deliveryContro->signup($query);
     $query="insert into role(email,password,roleid) values('$email','$password','$roleId')";
     $deliveryContro->signup($query);

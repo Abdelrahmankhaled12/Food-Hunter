@@ -20,6 +20,7 @@
       $this->order=$order;
     }
     public function getId(){
+      $this->db=new DBController;
       $email=$this->user->getEmail();
       $query="select id from user where email='$email'";
       $rows=$this->db->select($query);
@@ -31,6 +32,7 @@
     }
 
     public function update(){
+      $this->db=new DBController;
       $id=$this->user->getId();
       $name=$this->user->getName();
       $password=$this->user->getPassword();
@@ -41,6 +43,7 @@
     }
 
     public function makeOrder(){
+      $this->db=new DBController;
       $deliveryId=$this->order->getDeliveryId();
       $userId=$this->order->getUserId();
       $balance=$this->order->getBalance();
@@ -57,6 +60,7 @@
     }
 
     public function getOrders(){
+      $this->db=new DBController;
       $userId=$this->user->getId();
       $query="SELECT partner.name as restaurant,delivers.mealname,delivers.price,delivers.staus FROM delivers INNER join partner on delivers.partnerid=partner.id WHERE delivers.userid='$userId'";
       $result=$this->db->select($query);

@@ -15,6 +15,7 @@
     }
 
     public function update(){
+      $this->db=new DBController;
       $id=$this->delivery->getId();
       $name=$this->delivery->getName();
       $license=$this->delivery->getLicense();
