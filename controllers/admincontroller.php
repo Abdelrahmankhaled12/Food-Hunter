@@ -81,4 +81,20 @@
         return [];
       }
     }
+
+    public function getReport(){
+      $this->db=new DBController;
+      $query="SELECT delivers.orderid,delivery.name as deliveryname,user.name as username,partner.name as restaurant,delivers.orderTime,delivers.deliveryTime FROM delivers JOIN user ON delivers.userid=user.id JOIN partner on delivers.partnerid=partner.id JOIN delivery on delivers.deliveryid=delivery.id";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+        return [];
+      }
+    }
   }

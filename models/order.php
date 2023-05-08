@@ -12,11 +12,13 @@
     private $ratings;
     private $review;
     private $status;
+    private $orderTime;
+    private $deliveryTime;
     public function __construct1(){
 
     }
 
-    public function __construct2($deliveryId,$userId,$balance,$orderdetails,$price,$partnerId,$feedback,$ratings,$review,$status="pending"){
+    public function __construct2($deliveryId,$userId,$balance,$orderdetails,$price,$partnerId,$feedback,$ratings,$review,$orderTime,$deliveryTime,$status="pending"){
       $this->deliveryId=$deliveryId;
       $this->userId=$userId;
       $this->balance=$balance;
@@ -27,6 +29,8 @@
       $this->ratings=$ratings;
       $this->review=$review;
       $this->status=$status;
+      $this->orderTime=$orderTime;
+      $this->deliveryTime=$deliveryTime;
     }
 public function getDeliveryId() {
         return $this->deliveryId;
@@ -113,6 +117,30 @@ public function getDeliveryId() {
 	}
 	public function setStatus($status){
 		$this->status = $status;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getOrderTime() {
+		return $this->orderTime;
+	}
+	
+	/**
+	 * @param mixed $orderTime 
+	 * @return self
+	 */
+	public function setOrderTime($orderTime) {
+		$this->orderTime = $orderTime;
+		return $this;
+	}
+
+	public function getDeliveryTime() {
+		return $this->deliveryTime;
+	}
+	public function setDeliveryTime($deliveryTime){
+		$this->deliveryTime = $deliveryTime;
 		return $this;
 	}
 }
