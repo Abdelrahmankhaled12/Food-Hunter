@@ -83,5 +83,7 @@ submit.addEventListener('submit', function (e) {
   xhr.send(formData);
 
   localStorage.setItem("data",JSON.stringify(inputEmail.value))
+
+
 });
 
