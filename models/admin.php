@@ -1,8 +1,7 @@
 <?php 
   class admin{
     private $id;
-    private $name;
-    private $email;
+    private $username;
     private $password;
 
     private $roleId=1;
@@ -10,10 +9,9 @@
     {
       
     }
-    public function __construct2($name,$email,$password,$id=0){
+    public function __construct2($name,$password,$id=0){
       $this->id=$id;
-      $this->name=$name;
-      $this->email=$email;
+      $this->username=$name;
       $this->password=$password;
     } 
 
@@ -38,6 +36,14 @@
 
 	public function getRoleId() {
 		return $this->roleId;
+	}
+
+	public function getUsername() {
+		return $this->username;
+	}
+	public function setUsername($username) {
+		$this->username = $username;
+		return $this;
 	}
 }
 
