@@ -8,15 +8,14 @@
     protected $db;
 
     public function __construct1(){
-      $this->db=new DBController;
     }
 
     public function __construct2(delivery $delivery){
-      $this->db=new DBController;
       $this->delivery=$delivery;
     }
 
     public function update(){
+      $this->db=new DBController;
       $id=$this->delivery->getId();
       $name=$this->delivery->getName();
       $license=$this->delivery->getLicense();

@@ -10,18 +10,17 @@
     protected $db;
 
     public function __construct1(){
-      $this->db=new DBController;
     }
 
     public function __construct2(user $user){
       $this->user=$user;
-      $this->db=new DBController;
     }
 
     public function setOrder(order $order){
       $this->order=$order;
     }
     public function getId(){
+      $this->db=new DBController;
       $email=$this->user->getEmail();
       $query="select id from user where email='$email'";
       $rows=$this->db->select($query);
@@ -33,6 +32,7 @@
     }
 
     public function update(){
+      $this->db=new DBController;
       $id=$this->user->getId();
       $name=$this->user->getName();
       $password=$this->user->getPassword();
@@ -43,18 +43,34 @@
     }
 
     public function makeOrder(){
+      $this->db=new DBController;
       $deliveryId=$this->order->getDeliveryId();
       $userId=$this->order->getUserId();
       $balance=$this->order->getBalance();
-      $mealname=$this->order->getMealname();
+      $orderdetails=$this->order->getorderdetails();
       $price=$this->order->getPrice();
       $partnerId=$this->order->getPartnerId();
       $feedback=$this->order->getFeedback();
-      $quantity=$this->order->getQuantity();
       $ratings=$this->order->getRatings();
       $review=$this->order->getReview();
       $status=$this->order->getStatus();
-      $query="INSERT INTO delivers(deliveryid,userid,balance,mealname,price,partnerid,feedback,quantity,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$mealname','$price','$partnerId','$feedback','$quantity','$ratings','$review','$status')";
+      $query="INSERT INTO delivers(deliveryid,userid,balance,orderdetails,price,partnerid,feedback,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$orderdetails','$price','$partnerId','$feedback','$ratings','$review','$status')";
       $this->db->insert($query);
+    }
+
+    public function getOrders(){
+      $this->db=new DBController;
+      $userId=$this->user->getId();
+      $query="SELECT partner.name as restaurant,delivers.mealname,delivers.price,delivers.staus FROM delivers INNER join partner on delivers.partnerid=partner.id WHERE delivers.userid='$userId'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+      }
     }
   }

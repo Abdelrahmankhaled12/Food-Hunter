@@ -9,5 +9,7 @@
     $user->setId($userId);
     $usercontro=new usercontro;
     $usercontro->__construct2($user);
-    
+    $rows=$usercontro->getOrders();
+    header('Content-Type: application/json');
+    echo json_encode($rows);
   }

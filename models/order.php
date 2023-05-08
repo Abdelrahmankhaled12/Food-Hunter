@@ -5,11 +5,10 @@
     private $deliveryId;
     private $userId;
     private $balance;
-    private $mealname;
+    private $orderdetails;
     private $price;
     private $partnerId;
     private $feedback;
-    private $quantity;
     private $ratings;
     private $review;
     private $status;
@@ -17,15 +16,14 @@
 
     }
 
-    public function __construct2($deliveryId,$userId,$balance,$mealname,$price,$partnerId,$feedback,$quantity,$ratings,$review,$status="pending"){
+    public function __construct2($deliveryId,$userId,$balance,$orderdetails,$price,$partnerId,$feedback,$ratings,$review,$status="pending"){
       $this->deliveryId=$deliveryId;
       $this->userId=$userId;
       $this->balance=$balance;
-      $this->mealname=$mealname;
+      $this->orderdetails=$orderdetails;
       $this->price=$price;
       $this->partnerId=$partnerId;
       $this->feedback=$feedback;
-      $this->quantity=$quantity;
       $this->ratings=$ratings;
       $this->review=$review;
       $this->status=$status;
@@ -54,12 +52,12 @@ public function getDeliveryId() {
         $this->balance = $balance;
     }
 
-    public function getMealname() {
-        return $this->mealname;
+    public function getorderdetails() {
+        return $this->orderdetails;
     }
 
-    public function setMealId($mealname) {
-        $this->mealname = $mealname;
+    public function setorderdetails($orderdetails) {
+        $this->orderdetails = $orderdetails;
     }
 
     public function getPrice() {
@@ -87,14 +85,6 @@ public function getDeliveryId() {
   public function setFeedback($feedback){
     $this->feedback = $feedback;
   }
-
-	public function getQuantity() {
-		return $this->quantity;
-	}
-
-	public function setQuantity($quantity){
-		$this->quantity = $quantity;
-	}
 
 	public function getOrderId() {
 		return $this->orderId;
