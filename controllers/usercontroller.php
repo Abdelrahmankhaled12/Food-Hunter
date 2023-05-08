@@ -51,9 +51,10 @@
       $this->db=new DBController;
       $id=$this->user->getId();
       $name=$this->user->getName();
+      $email=$this->user->getEmail();
       $phone=$this->user->getPhone();
       $location=$this->user->getLocation();
-      $query="UPDATE user SET password='$password',name='$name',location='$location',phone='$phone' WHERE id='$id'";
+      $query="UPDATE user SET email='$email',name='$name',location='$location',phone='$phone' WHERE id='$id'";
       $this->db->update($query);
     }
 
