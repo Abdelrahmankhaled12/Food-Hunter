@@ -34,7 +34,7 @@
     public function getUserData(){
       $this->db=new DBController;
       $email=$this->user->getEmail();
-      $query="SELECT * FROM user WHERE email='$email'";
+      $query="SELECT id,email,name,location,phone FROM user WHERE email='$email'";
       $result=$this->db->select($query);
       if($result){
         $rows = array();
