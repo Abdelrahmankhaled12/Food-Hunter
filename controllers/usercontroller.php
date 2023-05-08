@@ -47,14 +47,14 @@
       $deliveryId=$this->order->getDeliveryId();
       $userId=$this->order->getUserId();
       $balance=$this->order->getBalance();
-      $mealname=$this->order->getMealname();
+      $orderdetails=$this->order->getorderdetails();
       $price=$this->order->getPrice();
       $partnerId=$this->order->getPartnerId();
       $feedback=$this->order->getFeedback();
       $ratings=$this->order->getRatings();
       $review=$this->order->getReview();
       $status=$this->order->getStatus();
-      $query="INSERT INTO delivers(deliveryid,userid,balance,mealname,price,partnerid,feedback,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$mealname','$price','$partnerId','$feedback','$ratings','$review','$status')";
+      $query="INSERT INTO delivers(deliveryid,userid,balance,orderdetails,price,partnerid,feedback,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$orderdetails','$price','$partnerId','$feedback','$ratings','$review','$status')";
       $this->db->insert($query);
     }
 
