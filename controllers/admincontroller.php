@@ -42,4 +42,43 @@
         return [];
       }
     }
+
+    public function deliveryRequests(){
+      $this->db=new DBController;
+      $query="SELECT  id,email,name,phone,license FROM delivery WHERE hired='no'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+        return [];
+      }
+    }
+
+    public function hireDelivery($deliveryId){
+      $this->db=new DBController;
+      $adminId=$this->admin->getId();
+      $query="UPDATE delivery SET hired='yes',adminId='$adminId' WHERE id='$deliveryId'";
+      $this->db->update($query);
+    }
+
+    public function getAlldeliveries(){
+      $this->db=new DBController;
+      $query="SELECT id,email,name,phone,license FROM delivery WHERE hired='yes'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+        return [];
+      }
+    }
   }
