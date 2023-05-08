@@ -51,7 +51,6 @@
       $price=$this->order->getPrice();
       $partnerId=$this->order->getPartnerId();
       $feedback=$this->order->getFeedback();
-      $quantity=$this->order->getQuantity();
       $ratings=$this->order->getRatings();
       $review=$this->order->getReview();
       $status=$this->order->getStatus();

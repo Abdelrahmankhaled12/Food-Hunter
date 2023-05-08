@@ -9,7 +9,6 @@
     private $price;
     private $partnerId;
     private $feedback;
-    private $quantity;
     private $ratings;
     private $review;
     private $status;
@@ -25,7 +24,6 @@
       $this->price=$price;
       $this->partnerId=$partnerId;
       $this->feedback=$feedback;
-      $this->quantity=$quantity;
       $this->ratings=$ratings;
       $this->review=$review;
       $this->status=$status;
@@ -87,14 +85,6 @@ public function getDeliveryId() {
   public function setFeedback($feedback){
     $this->feedback = $feedback;
   }
-
-	public function getQuantity() {
-		return $this->quantity;
-	}
-
-	public function setQuantity($quantity){
-		$this->quantity = $quantity;
-	}
 
 	public function getOrderId() {
 		return $this->orderId;
