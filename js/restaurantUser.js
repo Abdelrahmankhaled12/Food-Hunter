@@ -150,6 +150,9 @@ function createProduct(food) {
 document.getElementById("checkout").addEventListener("click",()=>{
     let des = "";
     let total = +foodFees;
+    let rating = "5";
+    let review = "lol"
+    let feed = "ahmed";
     listItems.forEach((index, i)=>{
         des = des + `
         order ${i + 1} : ${index.mealname} , quantity : ${index.quantity} 
@@ -158,15 +161,19 @@ document.getElementById("checkout").addEventListener("click",()=>{
     })
 
     const formData = new FormData();
-    formData.append('id', partnerData.id);
-    formData.append('image', file);
-    formData.append('mealname', foodName.value);
-    formData.append('description', description.value);
-    formData.append('price', price.value);
+    formData.append('userid',"1");
+    formData.append('orderdetails', des);
+    formData.append('price', total);
+    formData.append('partnerid', idPage);
+    formData.append('ratings', rating);
+    formData.append('review', review);
+    formData.append('feedback',feed);
+
+
 
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOder.php', true);
+    xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
 
     xhr.send(formData);
 })
