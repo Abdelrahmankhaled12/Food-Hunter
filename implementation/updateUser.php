@@ -7,7 +7,6 @@
     $user->setId($id);
     $user->setLocation($_POST["location"]);
     $user->setPhone($_POST["phone"]);
-    $user->setPassword($_POST["password"]);
     $user->setName($_POST["name"]);
     $usercontro=new usercontro;
     $usercontro->__construct2($user);
