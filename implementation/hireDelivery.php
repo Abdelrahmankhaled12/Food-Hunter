@@ -10,6 +10,6 @@
     if($hiring==='accept'){
       $admincontro->hireDelivery($deliveryId);
     }else{
-      $admincontro->reject($deliveryId);
+      $admincontro->rejectDelivery($deliveryId);
     }
   }

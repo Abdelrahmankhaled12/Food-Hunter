@@ -66,7 +66,7 @@
       $this->db->update($query);
     }
 
-    public function reject($deliveryId){
+    public function rejectDelivery($deliveryId){
       $this->db=new DBController;
       $query="DELETE FROM delivery WHERE id='$deliveryId'";
       $this->db->delete($query);
