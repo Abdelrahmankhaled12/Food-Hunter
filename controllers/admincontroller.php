@@ -11,11 +11,9 @@
     protected $db;
 
     public function __construct1(){
-      $this->db=new DBController;
     }
 
     public function __construct2(admin $admin){
-      $this->db=new DBController;
       $this->admin=$admin;
     }
 

@@ -10,12 +10,10 @@
     protected $db;
 
     public function __construct1(){
-      $this->db=new DBController;
     }
 
     public function __construct2(user $user){
       $this->user=$user;
-      $this->db=new DBController;
     }
 
     public function setOrder(order $order){
