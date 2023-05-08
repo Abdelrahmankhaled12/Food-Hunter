@@ -16,7 +16,7 @@
 
     }
 
-    public function __construct2($deliveryId,$userId,$balance,$mealname,$price,$partnerId,$feedback,$quantity,$ratings,$review,$status="pending"){
+    public function __construct2($deliveryId,$userId,$balance,$mealname,$price,$partnerId,$feedback,$ratings,$review,$status="pending"){
       $this->deliveryId=$deliveryId;
       $this->userId=$userId;
       $this->balance=$balance;

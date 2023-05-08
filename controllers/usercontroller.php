@@ -54,7 +54,7 @@
       $ratings=$this->order->getRatings();
       $review=$this->order->getReview();
       $status=$this->order->getStatus();
-      $query="INSERT INTO delivers(deliveryid,userid,balance,mealname,price,partnerid,feedback,quantity,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$mealname','$price','$partnerId','$feedback','$quantity','$ratings','$review','$status')";
+      $query="INSERT INTO delivers(deliveryid,userid,balance,mealname,price,partnerid,feedback,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$mealname','$price','$partnerId','$feedback','$ratings','$review','$status')";
       $this->db->insert($query);
     }
 
