@@ -66,6 +66,11 @@
       $this->db->update($query);
     }
 
+    public function rejectDelivery($deliveryId){
+      $this->db=new DBController;
+      $query="DELETE FROM delivery WHERE id='$deliveryId'";
+      $this->db->delete($query);
+    }
     public function getAlldeliveries(){
       $this->db=new DBController;
       $query="SELECT id,email,name,phone,license FROM delivery WHERE hired='yes'";

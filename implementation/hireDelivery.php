@@ -1,11 +1,15 @@
 <?php
   require_once("../controllers/admincontroller.php");
-  if(isset($_POST)){
+  if(isset($_GET)){
     $deliveryId=$_POST["deliveryId"];
-    $adminId=$_POST["adminId"];
+    $hiring=$_POST["status"];
     $admin=new admin;
-    $admin->setId($id);
+    $admin->setId('1');
     $admincontro=new admincontroller;
     $admincontro->__construct2($admin);
-    $admincontro->hireDelivery($deliveryId);
+    if($hiring==='accept'){
+      $admincontro->hireDelivery($deliveryId);
+    }else{
+      $admincontro->rejectDelivery($deliveryId);
+    }
   }
