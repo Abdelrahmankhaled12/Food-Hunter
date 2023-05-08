@@ -3,8 +3,8 @@
   require_once("../controllers/usercontroller.php");
   require_once("../models/user.php");
 
-  if(isset($_POST)){
-    $userId=$_POST["id"];
+  if(isset($_GET)){
+    $userId=$_GET["id"];
     $user=new user;
     $user->setId($userId);
     $usercontro=new usercontro;
