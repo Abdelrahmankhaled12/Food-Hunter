@@ -14,3 +14,14 @@ body {
     --orange-color: #FFA458;
     --grey-color: #999;
 }
+
+
+.logoNav {
+    width: 120px;
+}
+
+@media(min-width:767px){
+    .logoNav {
+        display: none;
+    }
+}

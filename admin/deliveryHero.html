@@ -12,11 +12,11 @@
     <!-- Font AweSome -->
     <script src="https://kit.fontawesome.com/49f02d4a75.js" crossorigin="anonymous"></script>
     <!-- File Css Main -->
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- File Css Partner -->
-    <link rel="stylesheet" href="../../css/partner.css">
+    <link rel="stylesheet" href="../css/partner.css">
     <!-- File Css Footer Dash -->
-    <link rel="stylesheet" href="../../css/footerDash.css">
+    <link rel="stylesheet" href="../css/footerDash.css">
 </head>
 
 <div class="partner">
@@ -24,14 +24,14 @@
         <div class="row">
             <div class="col-lg-2 col-md-2 part-1 nonePadding bigScreen">
                 <div class="dash ">
-                    <img src="../../images/food-hunter-low.png" class="ps-3 pt-3 pb-3 img-fluid" alt="">
+                    <img src="../images/food-hunter-low.png" class="ps-3 pt-3 pb-3 img-fluid" alt="">
                     <ul>
-                        <li><a class="active" href="admin.html"><i class="fa-solid fa-tv"></i>
+                        <li><a href="admin.html"><i class="fa-solid fa-tv"></i>
                                 Dashboard</a>
                         </li>
-                        <li><a href="users.html"><i class="fa-solid fa-users"></i>
+                        <li><a  href="users.html"><i class="fa-solid fa-users"></i>
                                 Show Users</a></li>
-                        <li><a href="partners.html"><i class="fa-solid fa-shop"></i> Show Partners</a>
+                        <li><a class="active" href="partners.html"><i class="fa-solid fa-shop"></i> Show Partners</a>
                         </li>
                         </li>
                         <li><a href="deliveryHero.html"><i class="fa-solid fa-truck-fast"></i>
@@ -44,7 +44,7 @@
                 <div class="food">
                     <nav class="navbar navbar-expand-lg ">
                         <div class="container-fluid pt-2">
-                            <div class="navbar-brand" id="namePartner"></div>
+                            <img class="logoNav" src="../images/logo-color.jpg" class="ps-3 pt-3 pb-3 img-fluid" alt="">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -77,19 +77,15 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Name Restaurant</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Location</th>
                                         <th scope="col">Phone</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Categories</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
+                                <tbody id="bodyTable">
                                 </tbody>
                             </table>
                         </div>
@@ -99,11 +95,11 @@
                 <footer class="pb-3 pt-3">
                     <div class="container d-flex justify-content-between align-items-center">
                         <div class="div">
-                            ©2023 - 24 <a href="../../index.html">Food Hunter</a>
+                            ©2023 - 24 <a href="../index.html">Food Hunter</a>
                         </div>
                         <div class="div">
-                            <a href="../FQA.html" class="me-3">FAQ</a>
-                            <a href="../contact.html">Contact Us</a>
+                            <a href="../pages/FQA.html" class="me-3">FAQ</a>
+                            <a href="../pages/contact.html">Contact Us</a>
                         </div>
                     </div>
                 </footer>
@@ -124,7 +120,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
-
+    <script>
+        fetch(`http://localhost/footer-hunter/implementation/partnersReportAdmin.php`)
+        .then(res=>res.json())
+        .then(dataAll=>{
+            dataAll.forEach(data => {
+                let tr = document.createElement("tr");
+                tr.innerHTML = `
+                                    <tr>
+                                        <th>${data.name}</th>
+                                        <th>${data.email}</th>
+                                        <th>${data.location}</th>
+                                        <th>${data.phone}</th>
+                                        <th>${data.status}</th>
+                                        <th>${data.category}</th>
+                                    </tr>
+                `
+                document.getElementById("bodyTable").append(tr)
+            });
+        })
+    </script>
 </body>
 
 </html>

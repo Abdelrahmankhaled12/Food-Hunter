@@ -14,6 +14,8 @@ nextButton.addEventListener("click", () => {
     location.href = "../pages/signup-user.html";
   } else if (choose === "signup-partner") {
     location.href = "../pages/signup-partner.html";
+  }else if(choose === "signup-delivery") {
+    location.href = "../pages/signup-delivery.html";
   }
 });
 
