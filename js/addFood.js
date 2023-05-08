@@ -46,6 +46,7 @@ function addFoods() {
     fetch(`http://localhost/footer-hunter/implementation/getMeals.php?partnerid=${+partnerData.id}`)
         .then(res => res.json())
         .then((data) => {
+            console.log(data)
             data.forEach(element => {
                 let tr = document.createElement("tr");
                 tr.setAttribute("id", element.mealid);

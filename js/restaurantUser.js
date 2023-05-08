@@ -10,37 +10,42 @@ let minorderElement = document.getElementById("minorder"),
 
 
 
-
+let foodFees;
 let idPage = JSON.parse(localStorage.getItem("linkPage"));
 
 
 fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
-.then(res=>res.json())
-.then(dataAll=>{
-    dataAll.forEach(data => {
-        if(data.id === idPage) {
-            // Add Data Restaurant
-            imgLogoElement.setAttribute("src",data.logo);
-            nameRestaurantElement.innerHTML = data.name;
-            categoriesElement.innerHTML = data.category;
-            openElement.innerHTML = data.open;
-            closeElement.innerHTML = data.close;
-            statusElement.innerHTML = data.status;
-            minorderElement.innerHTML = data.minorder
-            descriptionRestElement.innerHTML = data.description;
-        }
-    });
-})
+    .then(res => res.json())
+    .then(dataAll => {
+        dataAll.forEach(data => {
+            if (data.id === idPage) {
+                // Add Data Restaurant
+                imgLogoElement.setAttribute("src", data.logo);
+                nameRestaurantElement.innerHTML = data.name;
+                categoriesElement.innerHTML = data.category;
+                openElement.innerHTML = data.open;
+                closeElement.innerHTML = data.close;
+                statusElement.innerHTML = data.status;
+                minorderElement.innerHTML = data.minorder
+                descriptionRestElement.innerHTML = data.description;
+                document.getElementById("totalFees").innerHTML = "EGP " + data.fees + ".00";
+                document.getElementById("totalAmount").innerHTML = "EGP " + data.fees + ".00"
+                foodFees = data.fees;
+            }
+        });
+    })
 
-fetch(`http://localhost/footer-hunter/implementation/getMeals.php?partnerid=31}`)
-.then(res=>res.json())
-.then(dataAll=>{
-    dataAll.forEach(data=>{
-        let div = document.createElement("div");
-        div.setAttribute("class","box d-flex pb-2 mb-3")
+let array = [];
 
-        div.innerHTML = 
-            `
+fetch(`http://localhost/footer-hunter/implementation/getMeals.php?partnerid=${idPage}`)
+    .then(res => res.json())
+    .then(dataAll => {
+        dataAll.forEach(data => {
+            let div = document.createElement("div");
+            div.setAttribute("class", "box d-flex pb-2 mb-3")
+
+            div.innerHTML =
+                `
                 <div class="food d-flex">
                     <img src=${data.image} alt="">
                     <div class="title ps-2">
@@ -54,32 +59,114 @@ fetch(`http://localhost/footer-hunter/implementation/getMeals.php?partnerid=31}`
                 </div>
             `
             document.getElementById("fooods").append(div)
-    })
-    // Add Food To Cart
-    let addOrderButtons = document.querySelectorAll(".addOrder");
-    addOrderButtons.forEach(addOrderButton=>{
-        addOrderButton.addEventListener("click",()=>{
-            let data = dataAll.filter(index=> index.mealid === addOrderButton.getAttribute("id"))
-            let div = document.createElement("div");
-            div.setAttribute("class","product d-flex justify-content-between p-3")
-            div.setAttribute("id","data-"+data[0].mealid)
-            div.innerHTML = `
-            <input type="number" min="1" name="" id="" value="1">
-            <p class="nameFood">${data[0].mealname}</p>
-            <p class="price ms-1 me-1">${data[0].price}</p>
-            <button class="delete" id="delete" data-id=${data[0].mealid}><i class="fa-solid fa-minus"></i></button>
-            `
-            document.getElementById("bodyCart").append(div);
-
-            document.getElementById("delete").addEventListener("click",()=>{
-                console.log(document.getElementById("delete").getAttribute("data-id"))
-                document.getElementById(`data-${document.getElementById("delete").getAttribute("data-id")}`).remove()
-
-                
-            })
+        })
+        // Add Food To Cart
+        let addOrderButtons = document.querySelectorAll(".addOrder");
+        addOrderButtons.forEach(addOrderButton => {
+            addOrderButton.addEventListener("click", () => addToCard(dataAll.filter(data => data.mealid === addOrderButton.getAttribute("id"))[0]))
         })
     })
 
+
+let listItems = [];
+
+// ADD To Cart
+function addToCard(data) {
+    // Create Object Task Store Text and Place
+    data.quantity = 1;
+    const newPrduct = data;
+    // Call Function Create Task
+    createProduct(newPrduct);
+    listItems.push(newPrduct);
+}
+
+
+let totalAm= 0;
+
+// Create Product 
+function createProduct(food) {
+    let totalPrice = document.getElementById("totalPrice");
+    let body = document.getElementById("bodyCart");
+    // Create Element tr
+    let div = document.createElement("div");
+    // Add Attributes [Id]
+    div.setAttribute("id", food.mealid);
+    div.setAttribute("class", "product d-flex justify-content-between p-3")
+
+    // Content Element
+    div.innerHTML = `
+    <input type="number"  id="${food.mealid}" class="quantityNew" min="1" name=""  value="${food.quantity}">
+    <p class="nameFood">${food.mealname}</p>
+    <p class="price ms-1 me-1">${food.price}</p>
+    <button class="delete remove" id="delete" data-id=${food.mealid}><i class="fa-solid fa-minus"></i></button>
+    `
+
+    totalAm  = +food.price  + totalAm;
+    totalPrice.innerHTML = "EGP " + totalAm;
+    document.getElementById("totalAmount").innerHTML = "EGP " + (totalAm + +foodFees);
+
+    body.appendChild(div);
+
+    let quantityNew = document.querySelectorAll(".quantityNew")
+    quantityNew.forEach(numberNew => {
+        numberNew.addEventListener("change", (e) => {
+            listItems.forEach(element => {
+                if (element.mealid === e.target.getAttribute("id")) {
+                    element.quantity = +e.target.value;
+                }
+            })
+            let total = listItems.map(e => +e.quantity * +e.price).reduce((acc, ele) => acc + ele);
+            totalPrice.innerHTML = "EGP " + total;
+            document.getElementById("totalAmount").innerHTML = "EGP " + (total + +foodFees);
+        })
+    })
+
+    // In Case Delete Element
+    let remove = document.querySelectorAll(".remove");
+    remove.forEach(item => {
+        item.addEventListener("click", () => {
+            listItems = listItems.filter(element => element.mealid !== item.getAttribute("data-id"));
+            [...body.children].forEach(element => {
+                if (element.getAttribute("id") === item.getAttribute("data-id")) {
+                    element.remove();
+                }
+            })
+            console.log(listItems)
+            if (listItems.length === 0) {
+                totalAm = 0;
+                totalPrice.innerHTML = "EGP " + "00.00";
+                document.getElementById("totalAmount").innerHTML = "EGP " + +foodFees + ".00"
+            } else {
+                let total = listItems.map(e => +e.quantity * +e.price).reduce((acc, ele) => acc + ele);
+                totalAm = total;
+                totalPrice.innerHTML = "EGP " + total;
+                document.getElementById("totalAmount").innerHTML = "EGP " + (total + +foodFees);
+            }
+        })
+    })
+}
+
+
+document.getElementById("checkout").addEventListener("click",()=>{
+    let des = "";
+    let total = +foodFees;
+    listItems.forEach((index, i)=>{
+        des = des + `
+        order ${i + 1} : ${index.mealname} , quantity : ${index.quantity} 
+        `
+        total = (+index.price * +index.quantity)  + total;
+    })
+
+    const formData = new FormData();
+    formData.append('id', partnerData.id);
+    formData.append('image', file);
+    formData.append('mealname', foodName.value);
+    formData.append('description', description.value);
+    formData.append('price', price.value);
+
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOder.php', true);
+
+    xhr.send(formData);
 })
-
-
