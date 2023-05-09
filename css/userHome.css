@@ -75,3 +75,10 @@
     border-radius: 5px;
     font-weight: 700;
 }
+
+
+@media (min-width: 992px) {
+    .restaurants .container {
+        max-width: 1060px;
+    }
+}

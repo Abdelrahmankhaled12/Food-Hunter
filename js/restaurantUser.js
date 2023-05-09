@@ -12,7 +12,7 @@ let minorderElement = document.getElementById("minorder"),
 
 let foodFees;
 let idPage = JSON.parse(localStorage.getItem("linkPage"));
-
+let minOrder;
 
 fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
     .then(res => res.json())
@@ -26,11 +26,12 @@ fetch("http://localhost/footer-hunter/implementation/getAllpartners.php")
                 openElement.innerHTML = data.open;
                 closeElement.innerHTML = data.close;
                 statusElement.innerHTML = data.status;
-                minorderElement.innerHTML = data.minorder
+                minorderElement.innerHTML = data.minorder;
                 descriptionRestElement.innerHTML = data.description;
                 document.getElementById("totalFees").innerHTML = "EGP " + data.fees + ".00";
                 document.getElementById("totalAmount").innerHTML = "EGP " + data.fees + ".00"
                 foodFees = data.fees;
+                minOrder = +data.minorder;
             }
         });
     })
@@ -81,7 +82,7 @@ function addToCard(data) {
 }
 
 
-let totalAm= 0;
+let totalAm = 0;
 
 // Create Product 
 function createProduct(food) {
@@ -101,7 +102,7 @@ function createProduct(food) {
     <button class="delete remove" id="delete" data-id=${food.mealid}><i class="fa-solid fa-minus"></i></button>
     `
 
-    totalAm  = +food.price  + totalAm;
+    totalAm = +food.price + totalAm;
     totalPrice.innerHTML = "EGP " + totalAm;
     document.getElementById("totalAmount").innerHTML = "EGP " + (totalAm + +foodFees);
 
@@ -134,46 +135,73 @@ function createProduct(food) {
             console.log(listItems)
             if (listItems.length === 0) {
                 totalAm = 0;
+                document.getElementById("checkout").classList.add("checkNone")
                 totalPrice.innerHTML = "EGP " + "00.00";
                 document.getElementById("totalAmount").innerHTML = "EGP " + +foodFees + ".00"
             } else {
                 let total = listItems.map(e => +e.quantity * +e.price).reduce((acc, ele) => acc + ele);
                 totalAm = total;
+                if (totalAm < minOrder) {
+                    document.getElementById("checkout").classList.add("checkNone")
+                }
                 totalPrice.innerHTML = "EGP " + total;
                 document.getElementById("totalAmount").innerHTML = "EGP " + (total + +foodFees);
             }
         })
     })
+
+    if (totalAm >= minOrder) {
+        document.getElementById("checkout").classList.remove("checkNone")
+    }
+
 }
 
 
-document.getElementById("checkout").addEventListener("click",()=>{
+document.getElementById("checkout").addEventListener("click", () => {
     let des = "";
     let total = +foodFees;
     let rating = "5";
     let review = "lol"
     let feed = "ahmed";
-    listItems.forEach((index, i)=>{
+    listItems.forEach((index, i) => {
         des = des + `
         order ${i + 1} : ${index.mealname} , quantity : ${index.quantity} 
         `
-        total = (+index.price * +index.quantity)  + total;
+        total = (+index.price * +index.quantity) + total;
     })
 
-    const formData = new FormData();
-    formData.append('userid',"1");
-    formData.append('orderdetails', des);
-    formData.append('price', total);
-    formData.append('partnerid', idPage);
-    formData.append('ratings', rating);
-    formData.append('review', review);
-    formData.append('feedback',feed);
+    Swal.fire({
+        title: 'Are you sure to implement this request?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Good',
+                'Your order has been fulfilled.',
+                'done successfully'
+            )
+            let dataUser = JSON.parse(localStorage.getItem("dataUser"))
+            const formData = new FormData();
+            formData.append('userid', dataUser[0].id);
+            formData.append('orderdetails', des);
+            formData.append('price', total);
+            formData.append('partnerid', idPage);
+            formData.append('ratings', rating);
+            formData.append('review', review);
+            formData.append('feedback', feed);
+            formData.append('fees', feed);
+            formData.append('date', feed);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
+            xhr.send(formData);
+            listItems = [];
+            document.getElementById("bodyCart").innerHTML = "";
+        }
+    })
 
 
-
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
-
-    xhr.send(formData);
 })
