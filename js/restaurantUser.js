@@ -205,9 +205,6 @@ document.getElementById("checkout").addEventListener("click", () => {
             document.getElementById("checkout").classList.add("checkNone")
             document.getElementById("totalPrice").innerHTML = "EGP 00.00";
             document.getElementById("totalAmount").innerHTML = "EGP " + foodFees + ".00";
-
-
-
         }
     })
 

@@ -8,7 +8,7 @@ fetch(`http://localhost/footer-hunter/implementation/getUserData.php?email=${ema
                 tr.innerHTML = `
             <th>${data.restaurant}</th>
             <td>${data.orderdetails}</td>
-            <td>${data.price}</td>
+            <td>${data.totalPrice}</td>
             <td>${data.staus}</td>
         `
                 document.getElementById("tableBody").append(tr)

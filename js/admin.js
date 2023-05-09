@@ -4,7 +4,6 @@ fetch(`http://localhost/footer-hunter/implementation/requestsAdmin.php`)
     .then(res => res.json())
     .then(dataAll => {
         dataAll.forEach(data => {
-            console.log(data)
             let div = document.createElement("div");
             div.setAttribute("class", "col-lg-10")
             div.setAttribute("id", "data-numRequest"+data.id)
