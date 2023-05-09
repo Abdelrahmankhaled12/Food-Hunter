@@ -6,7 +6,7 @@
     $deliveryId=$_POST["deliveryId"];
     $orderId=$_POST["orderId"];
     $fees=$_POST["fees"];
-    $deliveryTime=date('H:i:s');
+    $deliveryTime=date('d-m-Y H:i:s');
     $delivery=new delivery;
     $delivery->setId($deliveryId);
     $order=new order;
