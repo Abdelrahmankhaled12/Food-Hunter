@@ -12,13 +12,14 @@
     <!-- Font AweSome -->
     <script src="https://kit.fontawesome.com/49f02d4a75.js" crossorigin="anonymous"></script>
     <!-- File Css Main -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- File Css Partner -->
-    <link rel="stylesheet" href="../css/partner.css">
+    <link rel="stylesheet" href="../../css/partner.css">
     <!-- File Css Footer Dash -->
-    <link rel="stylesheet" href="../css/footerDash.css">
+    <link rel="stylesheet" href="../../css/footerDash.css">
     <!-- File Css Admin -->
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/delivery.css">
 
 </head>
 
@@ -28,21 +29,16 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 part-1 nonePadding bigScreen">
                     <div class="dash ">
-                        <img src="../images/food-hunter-low.png" class="ps-3 pt-3 pb-3 img-fluid" alt="">
+                        <img src="../../images/food-hunter-low.png" class="ps-3 pt-3 pb-3 img-fluid" alt="">
                         <ul>
-                            <li><a class="active" href="admin.html"><i class="fa-solid fa-tv"></i>
+                            <li><a class="active" href="delivery.html"><i class="fa-solid fa-tv"></i>
                                     Dashboard</a>
                             </li>
-                            <li><a href="users.html"><i class="fa-solid fa-users"></i>
-                                    Show Users</a></li>
-                            <li><a href="partners.html"><i class="fa-solid fa-shop"></i> Show Partners</a>
-                            </li>
-                            </li>
-                            <li><a href="deliveryHero.html"><i class="fa-solid fa-truck-fast"></i>
-                                    Show Delivers Hero</a></li>
-                            </li>
-                            <li><a href="showOrder.html"><i class="fa-solid fa-basket-shopping"></i>
+                            <li><a href="showOrders.html"><i class="fa-solid fa-basket-shopping"></i>
                                     Show Orders</a></li>
+                            <li><a href="updateData.html"><i class="fa-solid fa-gears"></i> Show
+                                    Updata Data</a>
+                            </li>
                             </li>
                         </ul>
                     </div>
@@ -51,7 +47,7 @@
                     <div class="food">
                         <nav class="navbar navbar-expand-lg ">
                             <div class="container-fluid pt-2">
-                                <img class="logoNav" src="../images/logo-color.jpg" class="ps-3 pt-3 pb-3 img-fluid"
+                                <img class="logoNav" src="../../images/logo-color.jpg" class="ps-3 pt-3 pb-3 img-fluid"
                                     alt="">
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -62,20 +58,15 @@
                                     <div class="navbar-nav">
                                         <div class="dash smallScreen">
                                             <ul>
-                                                <li><a class="active" href="admin.html"><i class="fa-solid fa-tv"></i>
+                                                <li><a class="active" href="delivery.html"><i class="fa-solid fa-tv"></i>
                                                         Dashboard</a>
                                                 </li>
-                                                <li><a href="users.html"><i class="fa-solid fa-users"></i>
-                                                        Show Users</a></li>
-                                                <li><a href="partners.html"><i class="fa-solid fa-shop"></i> Show
-                                                        Partners</a>
-                                                </li>
-                                                </li>
-                                                <li><a href="deliveryHero.html"><i class="fa-solid fa-truck-fast"></i>
-                                                        Show Delivers Hero</a></li>
-                                                </li>
-                                                <li><a href="showOrder.html"><i class="fa-solid fa-basket-shopping"></i>
+                                                <li><a href="showOrders.html"><i
+                                                            class="fa-solid fa-basket-shopping"></i>
                                                         Show Orders</a></li>
+                                                <li><a href="updateData.html"><i class="fa-solid fa-gears"></i> Show
+                                                        Updata Data</a>
+                                                </li>
                                                 </li>
                                             </ul>
                                         </div>
@@ -86,33 +77,42 @@
                         <div class="dashBoard p-lg-5 height-100">
                             <div class="container">
                                 <div class="row">
+                                    <div class="col-lg-12 col-md-12 mt-3">
+                                        <div class="box d-flex justify-content-between align-items-center">
+                                            <div class="title titleInfo">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <h5>Name : <span id="name">Abdelrahman khaled</span></h5>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <h5>Email : <span id="email">Abdelrahman khaled</span></h5>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <h5>License : <span id="license ">Abdelrahman khaled</span></h5>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <h5>Phone : <span id="phone">Abdelrahman khaled</span></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-12 mt-3">
                                         <div class="box d-flex justify-content-between align-items-center">
                                             <div class="title">
-                                                <h5>TOTAL PARTNERS</h5>
+                                                <h5>TOTAL SALES</h5>
                                                 <p id="totalOrders">0</p>
                                             </div>
                                             <div class="icon">
-                                                <i class="fa-solid fa-shop"></i>
+                                                <i class="fa-solid fa-sack-dollar"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 mt-3">
                                         <div class="box d-flex justify-content-between align-items-center">
                                             <div class="title">
-                                                <h5>TOTAL USERS</h5>
+                                                <h5>TOTAL ORDERS</h5>
                                                 <p id="totalUsers">0</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="fa-solid fa-user"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 mt-3">
-                                        <div class="box d-flex justify-content-between align-items-center">
-                                            <div class="title">
-                                                <h5>TOTAL Deilvery Hero</h5>
-                                                <p id="totalDelivery">0</p>
                                             </div>
                                             <div class="icon">
                                                 <i class="fa-solid fa-truck-fast"></i>
@@ -131,11 +131,11 @@
                     <footer class="pb-3 pt-3">
                         <div class="container d-flex justify-content-between align-items-center">
                             <div class="div">
-                                ©2023 - 24 <a href="../index.html">Food Hunter</a>
+                                ©2023 - 24 <a href="../../index.html">Food Hunter</a>
                             </div>
                             <div class="div">
-                                <a href="../pages/FQA.html" class="me-3">FAQ</a>
-                                <a href="../pages/contact.html">Contact Us</a>
+                                <a href="../FQA.html" class="me-3">FAQ</a>
+                                <a href="../contact.html">Contact Us</a>
                             </div>
                         </div>
                     </footer>
@@ -144,11 +144,6 @@
         </div>
     </div>
 
-
-
-
-
-
     <!-- File Js Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -156,7 +151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-    <script src="../js/admin.js"></script>
+    <script src="../js/delivery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

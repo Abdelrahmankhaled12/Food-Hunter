@@ -1,0 +1,8 @@
+.titleInfo h5 {
+    color: #333 !important;
+}
+
+.titleInfo  span {
+    color: var(--grey-color);
+    font-size: 15px;
+}

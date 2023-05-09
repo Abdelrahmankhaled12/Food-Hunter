@@ -17,7 +17,22 @@ document.getElementById("description").innerHTML = dataRest.description;
 
 
 
-
+fetch(`http://localhost/footer-hunter/implementation/getMeals.php?partnerid=${dataRest.id}`)
+.then(res=>res.json())
+.then(dataAll=>{
+    dataAll.forEach(data=>{
+        console.log(data)
+        let div = document.createElement("div")
+        div.setAttribute("class","col-lg-3 col-md-6 mt-3")
+        div.innerHTML = `  
+        <div class="dish text-center">
+            <img src=${data.image}  alt="">
+            <p>${data.mealname}</p>
+        </div>
+        `
+        document.getElementById("dishes").append(div);
+    })
+})
 
 
 

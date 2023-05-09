@@ -54,3 +54,7 @@
     color: var(--grey-color);
     font-size: 14px;
 }
+
+.restaurants {
+    min-height: 500px;
+}

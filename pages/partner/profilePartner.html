@@ -194,7 +194,10 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 
-
+    <script>
+        const data = JSON.parse(localStorage.getItem('dataPartner'));
+        document.getElementById("namePartner").innerHTML =  data.name + " " + `<i class="fa-solid fa-shop"></i>`;
+    </script>
 </body>
 
 </html>

@@ -10,20 +10,20 @@ fetch(`http://localhost/footer-hunter/implementation/requestsAdmin.php`)
             div.setAttribute("id", "data-numRequest"+data.id)
             div.innerHTML =
                 `
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h5>Name : ${data.name}</h5>
+                        <h5>Name : <span>${data.name}</span> </h5>
                     </div>
                     <div class="col-lg-6">
-                        <h5>Email : ${data.email}</h5>
+                        <h5>Email : <span>${data.email} </span></h5>
                     </div>
                     <div class="col-lg-6">
-                        <h5>Phone : ${data.phone}</h5>
+                        <h5>Phone : <span>${data.phone} </span></h5>
                     </div>
                     <div class="col-lg-6">
-                        <h5>Lincess : ${data.license}</h5>
+                        <h5>License : <span>${data.license}</span></h5>
                     </div>
                 </div>
                 <div class="buttons mt-3">
@@ -100,3 +100,23 @@ function addDelivery(id, statuss) {
 
     document.getElementById(`data-numRequest${id}`).remove();
 }
+
+fetch(`http://localhost/footer-hunter/implementation/getAlldelivery.php`)
+.then(res=>res.json())
+.then(data=>{
+    document.getElementById("totalDelivery").innerHTML = data.length;
+})
+
+fetch(`http://localhost/footer-hunter/implementation/getAllusersAdmin.php`)
+.then(res=>res.json())
+.then(data=>{
+    document.getElementById("totalUsers").innerHTML = data.length;
+})
+
+
+fetch(`http://localhost/footer-hunter/implementation/partnersReportAdmin.php`)
+.then(res=>res.json())
+.then(data=>{
+    document.getElementById("totalOrders").innerHTML = data.length;
+})
+
