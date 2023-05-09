@@ -5,13 +5,13 @@
   if(isset($_POST)){
     $deliveryId=$_POST["deliveryId"];
     $orderId=$_POST["orderId"];
-    $balance=$_POST["balance"];
-    $deliveryTime=$_POST["deliveryTime"];
+    $fees=$_POST["fees"];
+    $deliveryTime=date('H:i:s');
     $delivery=new delivery;
     $delivery->setId($deliveryId);
     $order=new order;
     $order->setOrderId($orderId);
-    $order->setBalance($balance);
+    $order->setFees($fees);
     $order->setDeliveryTime($deliveryTime);
     $deliveryContro=new deliverycontro;
     $deliveryContro->__construct2($delivery);
