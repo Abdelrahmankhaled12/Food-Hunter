@@ -32,7 +32,7 @@
     public function getData(){
       $this->db=new DBController;
       $email=$this->delivery->getEmail();
-      $query="SELECT email,name,phone,license FROM delivery WHERE email='$email'";
+      $query="SELECT id,email,name,phone,license FROM delivery WHERE email='$email'";
       $result=$this->db->select($query);
       if($result){
         $rows = array();
