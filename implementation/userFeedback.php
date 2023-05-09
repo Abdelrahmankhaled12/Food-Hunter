@@ -3,8 +3,6 @@
   require_once("../controllers/usercontroller.php");
   if(isset($_POST)){
     $order=new order;
-    $id=$_POST["id"];
-    $order->setOrderId($id);
     $order->setFeedback($_POST["feedback"]);
     $order->setRatings($_POST["ratings"]);
     $usercontro=new usercontro;
