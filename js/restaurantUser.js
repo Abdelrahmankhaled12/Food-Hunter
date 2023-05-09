@@ -188,13 +188,13 @@ document.getElementById("checkout").addEventListener("click", () => {
             const formData = new FormData();
             formData.append('userid', dataUser[0].id);
             formData.append('orderdetails', des);
-            formData.append('price', total);
+            formData.append('totalPrice', total);
             formData.append('partnerid', idPage);
             formData.append('ratings', rating);
             formData.append('review', review);
             formData.append('feedback', feed);
-            formData.append('fees', feed);
-            formData.append('date', feed);
+            formData.append('fees', foodFees);
+            formData.append('mealprice', feed);
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
             xhr.send(formData);
