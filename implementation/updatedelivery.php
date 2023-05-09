@@ -6,7 +6,6 @@
     $id=$_POST["id"];
     $delivery->setName($_POST["name"]);
     $delivery->setLicense(($_POST["license"]));
-    $delivery->setPass($_POST["password"]);
     $delivery->setphone($_POST["phone"]);
     $deliveryContro=new deliverycontro;
     $deliveryContro->__construct2($delivery);
