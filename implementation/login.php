@@ -2,7 +2,7 @@
   require_once("../controllers/dbcontroller.php");
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $query="select role from roleid from role where email='$email' AND password='$password'";
+  $query="select roleid from role where email='$email' AND password='$password'";
   $rows = array();
   while ($row = mysqli_fetch_assoc($result)){
   $rows[] = $row;
