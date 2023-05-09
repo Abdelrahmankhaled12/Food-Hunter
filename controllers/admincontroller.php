@@ -3,7 +3,6 @@
   require_once("dbcontroller.php");
   require_once("partnercontroller.php");
   require_once("../models/partner.php");
-
   class admincontroller extends person{
     private admin $admin;
 
@@ -64,6 +63,16 @@
       $adminId=$this->admin->getId();
       $query="UPDATE delivery SET hired='yes',adminId='$adminId' WHERE id='$deliveryId'";
       $this->db->update($query);
+      $query="select email,password from delivery where id='$deliveryId'";
+      $result=$this->db->select($query);
+      $rows = array();
+      while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+      }
+      $email=$rows[0]['email'];
+      $password=$rows[0]['password'];
+      $query="insert into role(email,password,roleid) values('$email','$password','4')";
+      $this->db->insert($query);
     }
 
     public function rejectDelivery($deliveryId){
