@@ -143,6 +143,7 @@
       }
     }
     public function updateData(){
+      $this->db=new DBController;
       $id=$this->partner->getId();
       $name=$this->partner->getName();
       $location=$this->partner->getLocation();
