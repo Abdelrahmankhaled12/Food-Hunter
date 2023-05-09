@@ -10,11 +10,16 @@ const data = JSON.parse(localStorage.getItem('data'));
 
 
 fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${data}`)
-.then(res=>res.json())
-.then(data => {
-    namePartner.innerHTML = data[0].name + " " + `<i class="fa-solid fa-shop"></i>`; 
-    localStorage.setItem("dataPartner",JSON.stringify(data[0]))
-})
+    .then(res => res.json())
+    .then(data => {
+        namePartner.innerHTML = data[0].name + " " + `<i class="fa-solid fa-shop"></i>`;
+        localStorage.setItem("dataPartner", JSON.stringify(data[0]))
+        fetch(`http://localhost/footer-hunter/implementation/getOrdersPartner.php?id=${data[0].id}`)
+        .then(res => res.json())
+        .then(data=>{
+            totalOrders.innerHTML = data.length
+        })
+    })
 
 
 
