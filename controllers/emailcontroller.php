@@ -1,11 +1,11 @@
 <?php
-  $to="shehabkhalaf7474@gmail.com";
+  /*$to="shehabkhalaf7474@gmail.com";
   $subject="Nothing";
   $messsage="Hello it is working";
   $headers="MIME-Version: 1.0" . "\r\n";
   $headers.="Content-type:text/html;charset=UTF-8";
   $headers.="From:<foodhunter7474@gmail.com>"."\r\n";
-  mail($to,$subject,$messsage,$headers);
+  mail($to,$subject,$messsage,$headers);*/
 
   class email{
     private $from="<foodhunter7474@gmail.com>";

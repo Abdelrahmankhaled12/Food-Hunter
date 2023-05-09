@@ -66,9 +66,8 @@
       $this->db=new DBController;
       $deliveryId=$this->delivery->getId();
       $orderId=$this->order->getOrderId();
-      $fees=$this->order->getFees();
       $deliveryTime=$this->order->getDeliveryTime();
-      $query="UPDATE delivers SET deliveryid='$deliveryId',balance='$fees',staus='On way',deliveryTime='$deliveryTime' WHERE delivers.orderid='$orderId'";
+      $query="UPDATE delivers SET deliveryid='$deliveryId',staus='On way',deliveryTime='$deliveryTime' WHERE delivers.orderid='$orderId'";
       $this->db->update($query);
     }
 
