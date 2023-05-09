@@ -170,6 +170,8 @@ document.getElementById("checkout").addEventListener("click", () => {
         total = (+index.price * +index.quantity) + total;
     })
 
+    let meaPrice = total - +foodFees;
+
     Swal.fire({
         title: 'Are you sure to implement this request?',
         icon: 'warning',
@@ -180,9 +182,9 @@ document.getElementById("checkout").addEventListener("click", () => {
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
-                'Good',
+                'done successfully',
                 'Your order has been fulfilled.',
-                'done successfully'
+                'success'
             )
             let dataUser = JSON.parse(localStorage.getItem("dataUser"))
             const formData = new FormData();
@@ -194,12 +196,14 @@ document.getElementById("checkout").addEventListener("click", () => {
             formData.append('review', review);
             formData.append('feedback', feed);
             formData.append('fees', foodFees);
-            formData.append('mealprice', feed);
+            formData.append('mealprice', meaPrice);
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
             xhr.send(formData);
             listItems = [];
             document.getElementById("bodyCart").innerHTML = "";
+            document.getElementById("checkout").classList.add("checkNone")
+
         }
     })
 
