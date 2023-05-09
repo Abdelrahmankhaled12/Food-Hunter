@@ -1,13 +1,13 @@
 <?php
   require_once("../models/delivery.php");
   require_once("../controllers/deliverycontroller.php");
-  if(isset($_POST)){
+  if(isset($_GET)){
+    $deliveryId=$_GET["id"];
     $delivery=new delivery;
-    $id=$_POST["id"];
-    $delivery->setName($_POST["name"]);
-    $delivery->setLicense(($_POST["license"]));
-    $delivery->setphone($_POST["phone"]);
+    $delivery->setId($deliveryId);
     $deliveryContro=new deliverycontro;
     $deliveryContro->__construct2($delivery);
-    $deliveryContro->update();
+    $rows=$deliveryContro->showDeliveredOrders();
+    header('Content-Type: application/json');
+    echo json_encode($rows);
   }

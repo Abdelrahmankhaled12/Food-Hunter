@@ -62,15 +62,17 @@
       $this->db=new DBController;
       $deliveryId=$this->order->getDeliveryId();
       $userId=$this->order->getUserId();
-      $balance=$this->order->getBalance();
+      $totalPrice=$this->order->getTotalPrice();
       $orderdetails=$this->order->getorderdetails();
-      $price=$this->order->getPrice();
+      $fees=$this->order->getFees();
+      $mealPrice=$this->order->getMealPrice();
       $partnerId=$this->order->getPartnerId();
       $feedback=$this->order->getFeedback();
       $ratings=$this->order->getRatings();
       $review=$this->order->getReview();
       $status=$this->order->getStatus();
-      $query="INSERT INTO delivers(deliveryid,userid,balance,orderdetails,price,partnerid,feedback,ratings,review,staus) VALUES ('$deliveryId','$userId','$balance','$orderdetails','$price','$partnerId','$feedback','$ratings','$review','$status')";
+      $orderTime=$this->order->getOrderTime();
+      $query="INSERT INTO delivers(deliveryid,userid,orderdetails,totalPrice,mealPrice,fees,partnerid,feedback,ratings,review,staus, orderTime, deliveryTime) VALUES ('$deliveryId','$userId','$orderdetails','$totalPrice','$mealPrice','$fees','$partnerId','$feedback','$ratings','$review','$status','$orderTime','none')";
       $this->db->insert($query);
     }
 

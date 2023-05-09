@@ -4,9 +4,10 @@
     private $orderId;
     private $deliveryId;
     private $userId;
-    private $balance;
     private $orderdetails;
-    private $price;
+    private $totalPrice;
+    private $fees;
+    private $mealPrice;
     private $partnerId;
     private $feedback;
     private $ratings;
@@ -18,12 +19,13 @@
 
     }
 
-    public function __construct2($deliveryId,$userId,$balance,$orderdetails,$price,$partnerId,$feedback,$ratings,$review,$orderTime,$deliveryTime,$status="pending"){
+    public function __construct2($deliveryId,$userId,$orderdetails,$totalPrice,$fees,$mealPrice,$partnerId,$feedback,$ratings,$review,$orderTime,$deliveryTime,$status="pending"){
       $this->deliveryId=$deliveryId;
       $this->userId=$userId;
-      $this->balance=$balance;
       $this->orderdetails=$orderdetails;
-      $this->price=$price;
+      $this->totalPrice=$totalPrice;
+      $this->fees=$fees;
+      $this->mealPrice=$mealPrice;
       $this->partnerId=$partnerId;
       $this->feedback=$feedback;
       $this->ratings=$ratings;
@@ -47,15 +49,6 @@ public function getDeliveryId() {
     public function setUserId($userId) {
         $this->userId = $userId;
     }
-
-    public function getBalance() {
-        return $this->balance;
-    }
-
-    public function setBalance($balance) {
-        $this->balance = $balance;
-    }
-
     public function getorderdetails() {
         return $this->orderdetails;
     }
@@ -64,12 +57,12 @@ public function getDeliveryId() {
         $this->orderdetails = $orderdetails;
     }
 
-    public function getPrice() {
-        return $this->price;
+    public function getTotalPrice() {
+        return $this->totalPrice;
     }
 
-    public function setPrice($price) {
-        $this->price = $price;
+    public function setTotalPrice($totalPrice) {
+        $this->totalPrice = $totalPrice;
     }
 
     public function getPartnerId() {
@@ -79,9 +72,9 @@ public function getDeliveryId() {
     public function setPartnerId($partnerId) {
         $this->partnerId = $partnerId;
     }
-  
 
-  public function getFeedback() {
+
+    public function getFeedback() {
     return $this->feedback;
   }
 
@@ -141,6 +134,20 @@ public function getDeliveryId() {
 	}
 	public function setDeliveryTime($deliveryTime){
 		$this->deliveryTime = $deliveryTime;
+		return $this;
+	}
+	public function getFees() {
+		return $this->fees;
+	}
+	public function setFees($fees) {
+		$this->fees = $fees;
+		return $this;
+	}
+	public function getMealPrice() {
+		return $this->mealPrice;
+	}
+	public function setMealPrice($mealPrice){
+		$this->mealPrice = $mealPrice;
 		return $this;
 	}
 }
