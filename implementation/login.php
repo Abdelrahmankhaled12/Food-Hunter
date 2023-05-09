@@ -10,7 +10,7 @@
   $rows[] = $row;
   }
   if (!empty($rows)) {
-    $roleId=$rows[0]['id'];
+    $roleId=$rows[0]['roleid'];
     $response = array('success' => true, 'roleId' => $roleId);
   } else {
     $response = array('success' => false);
