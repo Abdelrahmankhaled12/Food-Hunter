@@ -21,7 +21,6 @@
     public function __construct2($deliveryId,$userId,$balance,$orderdetails,$price,$partnerId,$feedback,$ratings,$review,$orderTime,$deliveryTime,$status="pending"){
       $this->deliveryId=$deliveryId;
       $this->userId=$userId;
-      $this->balance=$balance;
       $this->orderdetails=$orderdetails;
       $this->price=$price;
       $this->partnerId=$partnerId;
