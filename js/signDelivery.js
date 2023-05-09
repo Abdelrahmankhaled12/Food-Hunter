@@ -29,6 +29,6 @@ submit.addEventListener('submit', function (e) {
     };
 
     xhr.send(formData);
-
+    localStorage.setItem("emailDelivery",JSON.stringify(inputEmail.value));
 });
 

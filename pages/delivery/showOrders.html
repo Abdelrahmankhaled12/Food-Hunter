@@ -31,10 +31,10 @@
                     <div class="dash ">
                         <img src="../../images/food-hunter-low.png" class="ps-3 pt-3 pb-3 img-fluid" alt="">
                         <ul>
-                            <li><a class="active" href="delivery.html"><i class="fa-solid fa-tv"></i>
+                            <li><a  href="delivery.html"><i class="fa-solid fa-tv"></i>
                                     Dashboard</a>
                             </li>
-                            <li><a href="showOrders.html"><i class="fa-solid fa-basket-shopping"></i>
+                            <li><a class="active" href="showOrders.html"><i class="fa-solid fa-basket-shopping"></i>
                                     Show Orders</a></li>
                             <li><a href="updateData.html"><i class="fa-solid fa-gears"></i> Show
                                     Updata Data</a>
@@ -58,10 +58,11 @@
                                     <div class="navbar-nav">
                                         <div class="dash smallScreen">
                                             <ul>
-                                                <li><a class="active" href="delivery.html"><i class="fa-solid fa-tv"></i>
+                                                <li><a  href="delivery.html"><i
+                                                            class="fa-solid fa-tv"></i>
                                                         Dashboard</a>
                                                 </li>
-                                                <li><a href="showOrders.html"><i
+                                                <li><a class="active" href="showOrders.html"><i
                                                             class="fa-solid fa-basket-shopping"></i>
                                                         Show Orders</a></li>
                                                 <li><a href="updateData.html"><i class="fa-solid fa-gears"></i> Show
@@ -79,30 +80,17 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">OrderID</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Email User</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Restaurant</th>
+                                            <th scope="col">Order Detalis</th>
+                                            <th scope="col">Delivery Time</th>
+                                            <th scope="col">Order Fees</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Larry the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                    <tbody id="bodyTable">
                                     </tbody>
                                 </table>
                             </div>
@@ -131,9 +119,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-    <script src="../js/delivery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let email = JSON.parse(localStorage.getItem("emailDelivery"))
+        let idDel;
+        fetch(`http://localhost/footer-hunter/implementation/getDeliveryData.php?email=${email}`)
+            .then(res => res.json())
+            .then(dataAll => {
+                dataAll.forEach(data => {
+                    fetch(`http://localhost/footer-hunter/implementation/showDeliveredOrder.php?id=${data.id}`)
+                        .then(res => res.json())
+                        .then(dataAll => {
+                            dataAll.forEach(data => {
+                                let tr = document.createElement("tr");
+                                tr.innerHTML = `
+                                    <tr>
+                                        <th>${data.id}</th>
+                                        <th>${data.userName}</th>
+                                        <th>${data.userEmail}</th>
+                                        <th>${data.userLocation}</th>
+                                        <th>${data.restaurant}</th>
+                                        <th>${data.details}</th>
+                                        <th>${data.deliveryTime}</th>
+                                        <th>${data.fees}</th>
+                                    </tr>
+                `
+                                document.getElementById("bodyTable").append(tr)
+                            });
+                        })
+                });
+            })
 
+    </script>
 </body>
 
 </html>

@@ -1,11 +1,32 @@
+let email = JSON.parse(localStorage.getItem("emailDelivery"))
+let idDel;
+fetch(`http://localhost/footer-hunter/implementation/getDeliveryData.php?email=${email}`)
+    .then(res => res.json())
+    .then(dataAll => {
+        dataAll.forEach(data => {
+            console.log(data)
+            document.getElementById("name").innerHTML = data.name;
+            document.getElementById("email").innerHTML = data.email;
+            document.getElementById("phone").innerHTML = data.phone;
+            document.getElementById("licenses").innerHTML = data.license;
+            idDel = data.id
+            fetch(`http://localhost/footer-hunter/implementation/showDeliveredOrder.php?id=${data.id}`)
+                .then(res => res.json())
+                .then(dataAll => {
+                    document.getElementById("totalOrders").innerHTML = dataAll.length;
+                    let total = dataAll.map(data => +data.fees).reduce((ele,acc)=>ele + acc);
+                    document.getElementById("totalSales").innerHTML = total;
+                })
+        });
+    })
+
 fetch(`http://localhost/footer-hunter/implementation/showOrderRequestDelivery.php`)
     .then(res => res.json())
     .then(dataAll => {
-        console.log(dataAll)
         dataAll.forEach(data => {
             let div = document.createElement("div");
             div.setAttribute("class", "col-lg-10")
-            div.setAttribute("id", "data-numRequest"+data.id)
+            div.setAttribute("id", "data-orderID" + data.id)
             div.innerHTML =
                 `
         <div class="card mb-3">
@@ -56,19 +77,11 @@ fetch(`http://localhost/footer-hunter/implementation/showOrderRequestDelivery.ph
         acceptButtons.forEach(acceptButton => {
             acceptButton.addEventListener("click", () => {
                 const formData = new FormData();
-                formData.append('userid', dataUser[0].id);
-                formData.append('orderdetails', des);
-                formData.append('totalPrice', total);
-                formData.append('partnerid', idPage);
-                formData.append('ratings', rating);
-                formData.append('review', review);
-                formData.append('feedback', feed);
-                formData.append('fees', foodFees);
-                formData.append('mealprice', meaPrice);
+                formData.append('orderId', acceptButton.getAttribute("data-id"));
+                formData.append('deliveryId', idDel);
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', 'http://localhost/footer-hunter/implementation/deliverOrder.php', true);
                 xhr.send(formData);
-                
             })
         })
     })
