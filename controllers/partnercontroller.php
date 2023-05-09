@@ -162,4 +162,21 @@
       $query="UPDATE partner SET name='$name',location='$location',phone='$phone',logoname='$logoname',logo='$logo',logotype='$logotype',open='$open',close='$close',fees='$fees',time='$time',status='$status',description='$description',minorder='$minorder',category='$category' WHERE id='$id'";
       $this->db->update($query);
     }
+
+    public function getFeedback(){
+      $id=$this->partner->getId();
+      $this->db=new DBController;
+      $query="select feedback,review,ratings from delivers where partnerid='$id'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+        return [];
+      }
+    }
   }
