@@ -92,11 +92,11 @@
       }
     }
 
-    public function setFeedback(){
+    public function setFeedback($partnerId){
       $feedback=$this->order->getFeedback();
       $ratings=$this->order->getRatings();
       $this->db=new DBController;
-      $query="update delivers set feedback='$feedback',$ratings='$ratings' where deliveryid='1'";
+      $query="update delivers set feedback='$feedback',$ratings='$ratings' where deliveryid='1' ANd partnerid='$partnerId'";
       $this->db->update($query);
     }
   }
