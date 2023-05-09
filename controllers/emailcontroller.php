@@ -8,16 +8,22 @@
   mail($to,$subject,$messsage,$headers);*/
 
   class email{
-    private $from="<foodhunter7474@gmail.com>";
+    private $from;
     private $to;
     private $messsage;
     private $subject;
+    private $ourGmail="foodhunter7474@gmail.com";
     public function __construct1(){
     }
-    public function __construct2($to,$subject,$messsage){
+    public function __construct2($to,$from,$subject,$messsage){
       $this->to=$to;
       $this->subject=$subject;
       $this->messsage=$messsage;
+      $this->from="<"."$from".">";
+    }
+
+    public function getOurGmail(){
+      return $this->ourGmail;
     }
 
 	public function getTo() {
