@@ -96,7 +96,7 @@
       $feedback=$this->order->getFeedback();
       $ratings=$this->order->getRatings();
       $this->db=new DBController;
-      $query="update delivers set feedback='$feedback',$ratings='$ratings' where deliveryid='1' ANd partnerid='$partnerId'";
+      $query="update delivers set feedback='$feedback',ratings='$ratings' where deliveryid='1' AND partnerid='$partnerId'";
       $this->db->update($query);
     }
   }
