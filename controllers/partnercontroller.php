@@ -128,6 +128,22 @@
       }
     }
 
+    public function getUsers(){
+      $this->db=new DBController;
+      $id=$this->partner->getId();
+      $query="select user.name,user.email,user.phone,user.location from delivers inner join user on delivers.userid=user.id where delivers.partnerid='$id'";
+      $result=$this->db->select($query);
+      if($result){
+        $rows = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+      }
+      return $rows;
+      }else{
+        echo "empty result";
+        return [];
+      }
+    }
     public function updateData(){
       $id=$this->partner->getId();
       $password=$this->partner->getPassword();
