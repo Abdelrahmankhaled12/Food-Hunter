@@ -1,14 +1,9 @@
 <?php
-  require_once("../controllers/dbcontroller.php");
+  require_once("../controllers/person.php");
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $query="select roleid from role where email='$email' AND password='$password'";
-  $db=new DBController;
-  $result=$db->select($query);
-  $rows = array();
-  while ($row = mysqli_fetch_assoc($result)){
-  $rows[] = $row;
-  }
+  $person=new person;
+  $rows=$person->login($email,$password);
   if (!empty($rows)) {
     $roleId=$rows[0]['roleid'];
     $response = array('success' => true, 'roleId' => $roleId);

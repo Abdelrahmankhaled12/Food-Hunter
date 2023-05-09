@@ -17,21 +17,14 @@
       }
   }
 
-    /*public function login($query){
+    public function login($email,$password){
       $this->db=new DBController;
-      $rows=$this->db->select($query);
-      $id=$rows[0]["id"];
-      if($id==1){
-        return "admin";
+      $query="select roleid from role where email='$email' AND password='$password'";
+      $result=$this->db->select($query);
+      $rows = array();
+      while ($row = mysqli_fetch_assoc($result)){
+      $rows[] = $row;
       }
-      else if($id==2){
-        return "partner";
-      }
-      else if($id==3){
-        return "user";
-      }
-      else{
-        return "delivery";
-      }
-    }*/
+      return $rows;
+    }
 }
