@@ -9,7 +9,6 @@
     $logoType=$_FILES["image"]["type"];
     $partner=new Custom\Partner;
     $partner->setId($id);
-    $partner->setPassword($_POST["password"]);
     $partner->setName($_POST["name"]);
     $partner->setLocation($_POST["address"]);
     $partner->setPhone($_POST["phone"]);
