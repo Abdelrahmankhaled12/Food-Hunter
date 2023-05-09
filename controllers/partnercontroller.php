@@ -7,8 +7,6 @@
     private Custom\Partner $partner;
     private meal $meal;
     protected $db;
-
-
     public function __construct(Custom\Partner $partner){
       $this->partner=$partner;
     }
