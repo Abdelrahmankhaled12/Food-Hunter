@@ -10,7 +10,8 @@
   $rows[] = $row;
   }
   if (!empty($rows)) {
-    $response = array('success' => true, 'data' => 'Some data to send to client');
+    $roleId=$rows[0]['id'];
+    $response = array('success' => true, 'roleId' => $roleId);
   } else {
     $response = array('success' => false);
   }
