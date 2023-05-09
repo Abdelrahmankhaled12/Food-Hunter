@@ -98,7 +98,7 @@
     public function getOrders(){
       $this->db=new DBController;
       $id=$this->partner->getId();
-      $query="SELECT delivers.orderid,delivers.orderdetails,delivers.price,delivers.feedback,delivers.ratings,delivers.review,user.email,user.name,user.phone,user.location from delivers INNER join user on delivers.userid=user.id WHERE delivers.partnerid='$id'";
+      $query="SELECT delivers.orderid,delivers.orderdetails,delivers.totalPrice,delivers.feedback,delivers.ratings,delivers.review,user.email,user.name,user.phone,user.location from delivers INNER join user on delivers.userid=user.id WHERE delivers.partnerid='$id'";
       $result=$this->db->select($query);
             if($result){
               $rows = array();
