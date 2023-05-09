@@ -203,6 +203,10 @@ document.getElementById("checkout").addEventListener("click", () => {
             listItems = [];
             document.getElementById("bodyCart").innerHTML = "";
             document.getElementById("checkout").classList.add("checkNone")
+            document.getElementById("totalPrice").innerHTML = "EGP 00.00";
+            document.getElementById("totalAmount").innerHTML = "EGP " + foodFees + ".00";
+
+
 
         }
     })
