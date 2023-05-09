@@ -6,7 +6,6 @@
     $id=$_POST["id"];
     $order->setOrderId($id);
     $order->setFeedback($_POST["feedback"]);
-    $order->setReview($_POST["review"]);
     $order->setRatings($_POST["ratings"]);
     $usercontro=new usercontro;
     $usercontro->setOrder($order);

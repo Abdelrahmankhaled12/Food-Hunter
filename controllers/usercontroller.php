@@ -95,10 +95,9 @@
     public function setFeedback(){
       $orderId=$this->order->getOrderId();
       $feedback=$this->order->getFeedback();
-      $review=$this->order->getReview();
       $ratings=$this->order->getRatings();
       $this->db=new DBController;
-      $query="update delivers set feedback='$feedback',review='$review',$ratings='$ratings' where orderid='$orderId'";
+      $query="update delivers set feedback='$feedback',$ratings='$ratings' where orderid='$orderId'";
       $this->db->update($query);
     }
   }
