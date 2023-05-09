@@ -166,7 +166,7 @@
     public function getFeedback(){
       $id=$this->partner->getId();
       $this->db=new DBController;
-      $query="select feedback,review,ratings from delivers where partnerid='$id'";
+      $query="select feedback,ratings from delivers where partnerid='$id'";
       $result=$this->db->select($query);
       if($result){
         $rows = array();

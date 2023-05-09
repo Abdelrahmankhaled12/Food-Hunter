@@ -1,6 +1,6 @@
 <?php
   require_once("../controllers/admincontroller.php");
-  if(isset($_GET)){
+  if(isset($_POST)){
     $deliveryId=$_POST["deliveryId"];
     $hiring=$_POST["status"];
     $admin=new admin;
