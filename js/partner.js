@@ -17,7 +17,29 @@ fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${
         fetch(`http://localhost/footer-hunter/implementation/getOrdersPartner.php?id=${data[0].id}`)
         .then(res => res.json())
         .then(data=>{
-            totalOrders.innerHTML = data.length
+            console.log(data)
+            totalOrders.innerHTML = data.length;
+            if(data.length === 0) {
+                totalSales.innerHTML = "0";
+            }else {
+                totalSales.innerHTML = data.map(ele=>ele.totalPrice).reduce((ele,acc)=>acc+ele);
+            }
+        })
+        fetch(`http://localhost/footer-hunter/implementation/getUsersPartner.php?id=${data[0].id}`)
+        .then(res => res.json())
+        .then(data=>{
+            totalUsers.innerHTML = data.length;
+        })
+        fetch(`http://localhost/footer-hunter/implementation/getfeedback.php?id=${data[0].id}`)
+        .then(res => res.json())
+        .then(data=>{
+            if(data.length === 0) {
+                averageRating.innerHTML = "0/0";
+            }else {
+                let total = data.map(e=> +e.ratings).reduce((ele,acc)=>ele+acc);
+                averageRating.innerHTML = total / data.length + "/5";
+            }
+
         })
     })
 

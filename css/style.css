@@ -25,3 +25,13 @@ body {
         display: none;
     }
 }
+
+
+.true {
+    border: 1px solid green !important ;
+}
+
+
+.false {
+    border: 1px solid red !important;
+}

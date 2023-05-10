@@ -226,7 +226,11 @@
                     .then(res => res.json())
                     .then(dataAll => {
                         document.getElementById("totalOrders").value = dataAll.length;
-                        document.getElementById("totalSales").value = dataAll.map(e=> +e.totalPrice).reduce((acc,ele)=>acc + ele);
+                        if(dataAll.length === 0) {
+                            document.getElementById("totalSales").value = 0;
+                        }else {
+                            document.getElementById("totalSales").value = dataAll.map(e=> +e.totalPrice).reduce((acc,ele)=>acc + ele);
+                        }
                     })
             })
 

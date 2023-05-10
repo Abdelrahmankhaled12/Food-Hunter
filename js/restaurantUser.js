@@ -186,27 +186,39 @@ document.getElementById("checkout").addEventListener("click", () => {
                 'Your order has been fulfilled.',
                 'success'
             )
+            setTimeout(() => {
+                document.getElementById("buttonFeed").click();
+            }, 1200)
+            let select = 5,
+                feedBack = "";
+            document.getElementById("rating").addEventListener("change", (e) => {
+                select = e.target.value;
+            })
+            let feed = document.getElementById("feedback");
+
+            document.getElementById("feedBackButton").addEventListener("click", (e) => {
+                feedBack = feed.value;
+            })
             let dataUser = JSON.parse(localStorage.getItem("dataUser"))
-            const formData = new FormData();
-            formData.append('userid', dataUser[0].id);
-            formData.append('orderdetails', des);
-            formData.append('totalPrice', total);
-            formData.append('partnerid', idPage);
-            formData.append('ratings', rating);
-            formData.append('review', review);
-            formData.append('feedback', feed);
-            formData.append('fees', foodFees);
-            formData.append('mealprice', meaPrice);
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
-            xhr.send(formData);
-            listItems = [];
             document.getElementById("bodyCart").innerHTML = "";
             document.getElementById("checkout").classList.add("checkNone")
             document.getElementById("totalPrice").innerHTML = "EGP 00.00";
             document.getElementById("totalAmount").innerHTML = "EGP " + foodFees + ".00";
+            setTimeout(()=>{
+                const formData = new FormData();
+                formData.append('userid', dataUser[0].id);
+                formData.append('orderdetails', des);
+                formData.append('totalPrice', total);
+                formData.append('partnerid', idPage);
+                formData.append('ratings', select);
+                formData.append('feedback', feedBack);
+                formData.append('fees', foodFees);
+                formData.append('mealprice', meaPrice);
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
+                xhr.send(formData);
+            },15000)
         }
     })
-
-
 })
+

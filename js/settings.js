@@ -1,14 +1,13 @@
 // Get Data Restaurant 
 let dataRest = JSON.parse(localStorage.getItem("dataPartner"));
 
-console.log(dataRest)
+document.getElementById("namePartner").innerHTML = dataRest.name + " " + `<i class="fa-solid fa-shop"></i>`;
+
 // Get Elements
 let inputName = document.getElementById("name");
 let inputEmail = document.getElementById("email");
-let inputPassword = document.getElementById("password");
 let inputPhone = document.getElementById("phone");
 let inputLocation = document.getElementById("location");
-let inputConfirmPassword = document.getElementById("confirmPassword");
 let description = document.getElementById("description");
 let deliveryFees = document.getElementById("deliveryFees");
 let deliveryTime = document.getElementById("deliveryTime");
@@ -24,21 +23,29 @@ let submit = document.getElementById("submit");
 let fileInput = document.querySelector('input[type="file"]');
 let checkInput = document.querySelectorAll('input[type="checkbox"]');
 
-inputName.value = dataRest.name;
-inputEmail.value = dataRest.email;
-inputPhone.value = dataRest.phone;
-inputLocation.value = dataRest.location;
-description.value = dataRest.description;
-deliveryFees.value = dataRest.fees;
-deliveryTime.value = dataRest.time;
-minOrder.value = dataRest.minorder;
-hourOpen.value = dataRest.open.split(":")[0];
-minuteOpen.value = dataRest.open.split(":")[1];
-secondsOpen.value = dataRest.open.split(":")[2];
-hourClose.value = dataRest.open.split(":")[0];
-minuteClose.value = dataRest.open.split(":")[1];
-secondsClose.value = dataRest.open.split(":")[2];
-statuss.value = dataRest.status;
+
+fetch(`http://localhost/footer-hunter/implementation/getPartnerData.php?email=${dataRest.email}`)
+    .then(res => res.json())
+    .then(dataAll => {
+        dataAll.forEach(data=>{
+            inputName.value = data.name;
+            inputEmail.value = data.email;
+            inputPhone.value = data.phone;
+            inputLocation.value = data.location;
+            description.value = data.description;
+            deliveryFees.value = data.fees;
+            deliveryTime.value = data.time;
+            minOrder.value = data.minorder;
+            hourOpen.value = data.open.split(":")[0];
+            minuteOpen.value = data.open.split(":")[1];
+            secondsOpen.value = data.open.split(":")[2];
+            hourClose.value = data.open.split(":")[0];
+            minuteClose.value = data.open.split(":")[1];
+            secondsClose.value = data.open.split(":")[2];
+            statuss.value = data.status;
+        })
+    })
+
 
 
 let x = []
@@ -77,7 +84,6 @@ submit.addEventListener('submit', function (e) {
     formData.append('name', inputName.value);
     formData.append('email', inputEmail.value);
     formData.append('phone', inputPhone.value);
-    formData.append('password', inputPassword.value);
     formData.append('address', inputLocation.value);
     formData.append('description', description.value);
     formData.append('fees', deliveryFees.value);
@@ -92,15 +98,6 @@ submit.addEventListener('submit', function (e) {
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', `http://localhost/footer-hunter/implementation/updatePartner.php`, true);
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            console.log('تم تحميل الصورة بنجاح.');
-        } else {
-            console.log('فشل تحميل الصورة.');
-        }
-    };
-    
     xhr.send(formData);
 
 });

@@ -165,3 +165,31 @@
     opacity: 0.3;
     pointer-events: none;
 }
+
+.buttonFeed {
+    color: white;
+    width: 100%;
+    display: block;
+    background-color: var(--orange-color);
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 5px 0px;
+    font-size: 20px;
+
+}
+
+.modal-content label {
+    color: var(--grey-color) !important;
+}
+
+.modal-dialog {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.titlefeed {
+    font-size: 20px;
+    color: var(--orange-color);
+    font-weight: 600;
+}
