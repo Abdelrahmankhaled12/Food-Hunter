@@ -4,6 +4,7 @@
   if(isset($_POST)){
     $delivery=new delivery;
     $id=$_POST["id"];
+    $delivery->setId($id);
     $delivery->setName($_POST["name"]);
     $delivery->setLicense(($_POST["license"]));
     $delivery->setphone($_POST["phone"]);
