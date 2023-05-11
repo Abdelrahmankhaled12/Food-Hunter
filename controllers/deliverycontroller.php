@@ -67,7 +67,7 @@
       $deliveryId=$this->delivery->getId();
       $orderId=$this->order->getOrderId();
       $deliveryTime=$this->order->getDeliveryTime();
-      $query="UPDATE delivers SET deliveryid='$deliveryId',staus='On way',deliveryTime='$deliveryTime' WHERE delivers.orderid='$orderId'";
+      $query="UPDATE delivers SET deliveryid='$deliveryId',staus='delivered',deliveryTime='$deliveryTime' WHERE delivers.orderid='$orderId'";
       $this->db->update($query);
     }
 

@@ -76,6 +76,8 @@ fetch(`http://localhost/footer-hunter/implementation/showOrderRequestDelivery.ph
 
         acceptButtons.forEach(acceptButton => {
             acceptButton.addEventListener("click", () => {
+                let idButton = acceptButton.getAttribute("data-id");
+                document.getElementById(`data-orderID${idButton}`).remove();
                 const formData = new FormData();
                 formData.append('orderId', acceptButton.getAttribute("data-id"));
                 formData.append('deliveryId', idDel);

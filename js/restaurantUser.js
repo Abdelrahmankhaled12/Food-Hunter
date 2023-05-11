@@ -204,7 +204,9 @@ document.getElementById("checkout").addEventListener("click", () => {
             document.getElementById("checkout").classList.add("checkNone")
             document.getElementById("totalPrice").innerHTML = "EGP 00.00";
             document.getElementById("totalAmount").innerHTML = "EGP " + foodFees + ".00";
+
             setTimeout(()=>{
+                console.log("yes")
                 const formData = new FormData();
                 formData.append('userid', dataUser[0].id);
                 formData.append('orderdetails', des);
@@ -217,7 +219,7 @@ document.getElementById("checkout").addEventListener("click", () => {
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', 'http://localhost/footer-hunter/implementation/makeOrder.php', true);
                 xhr.send(formData);
-            },15000)
+            },10000)
         }
     })
 })
