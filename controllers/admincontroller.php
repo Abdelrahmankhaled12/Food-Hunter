@@ -3,6 +3,7 @@
   require_once("dbcontroller.php");
   require_once("partnercontroller.php");
   require_once("../models/partner.php");
+  require_once("../controllers/emailcontroller.php");
   class admincontroller extends person{
     private admin $admin;
 
@@ -73,6 +74,9 @@
       $password=$rows[0]['password'];
       $query="insert into role(email,password,roleid) values('$email','$password','4')";
       $this->db->insert($query);
+      $mail=new email;
+      $mail->__construct2($email,$mail->getFrom(),"Food-Hunter","<strong>Your request to join us as Delivery hero has been accepted.</strong><br><b>Now you can login and start you career</b><br><h2>Best wishes!</h2>");
+      $mail->sendEmail();
     }
 
     public function rejectDelivery($deliveryId){

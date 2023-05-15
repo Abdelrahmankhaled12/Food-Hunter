@@ -49,9 +49,10 @@
 		$this->subject = $subject;
 	}
   public function sendEmail(){
+    $from=$this->getFrom();
     $headers="MIME-Version: 1.0" . "\r\n";
     $headers.="Content-type:text/html;charset=UTF-8";
-    $headers.="From:<foodhunter7474@gmail.com>"."\r\n";
+    $headers.="From:$from"."\r\n";
     mail($this->to,$this->subject,$this->messsage,$headers);
   }
 }

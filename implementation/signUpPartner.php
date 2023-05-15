@@ -1,6 +1,7 @@
 <?php
   require_once("../models/partner.php");
   require_once("../controllers/partnercontroller.php");
+  require_once("../controllers/emailcontroller.php");
     if(isset($_POST)){
     $logo_name=$_FILES["image"]["name"];
     $logo=addslashes(file_get_contents($_FILES['image']['tmp_name']));
@@ -28,4 +29,7 @@
     $pcontro->signup($query);
     $query="insert into role(email,password,roleid) values('$email','$password','$role')";
     $pcontro->signup($query);
+    $mail=new email;
+    $mail->__construct2($email,$mail->getFrom(),"Food-Hunter","Thanks $name to join us as a partner");
+    $mail->sendEmail();
     }
